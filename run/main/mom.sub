@@ -4,7 +4,7 @@
 #PBS -A URTG0024
 #PBS -l walltime=11:59:00
 #PBS -q economy
-### Select 20 nodes with 36 CPUs 
+### Select 20 nodes with 36 CPUs - note this is the layout, but if we mask cores we will use less resources
 #PBS -l select=20:ncpus=36:mpiprocs=36 
 ### Send email on abort and end
 #PBS -m ae
@@ -22,6 +22,7 @@ if [ ! -d RESTART ] ; then mkdir RESTART ; fi
 rm ocean.stats.nc
 cp /glade/work/jsimkins/MOM6-examples/build/intel/ice_ocean_SIS2/repro/MOM6 .
 
+# Use 492 cores as specified by mask_table (masks land cores)
 mpiexec_mpt -np 492 /glade/work/jsimkins/runs-MOM6/nwa25/MOM6
 
 
