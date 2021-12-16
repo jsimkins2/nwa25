@@ -1,0 +1,21 @@
+NWA25-epbl_update
+1900 1 1 0 0 0
+
+# MOM6 ocean diagnostics files
+"ocean_daily",            1, "days", 1, "days", "time"
+"ocean_5day", 5, "days", 1, "days", "time"
+#"ocean_static",          -1, "months", 1, "days", "time" # A protected name. Do not change this line.
+
+
+
+# Daily Diagnostic Fields
+"ocean_model", "MEKE",          "meke",        "ocean_daily", "all", "mean", "none",2
+"ocean_model", "SST",           "sst",         "ocean_daily", "all", "mean", "none",2
+"ocean_model", "SSS",           "sss",         "ocean_daily", "all", "mean", "none",2
+
+# 5 day diagnostic fields (removes diurnal tides)
+"ocean_model", "u",            "u",            "ocean_5day", "all", "mean", "none", 2
+"ocean_model", "v",            "v",            "ocean_5day", "all", "mean", "none", 2
+"ocean_model", "temp",         "temp",         "ocean_5day", "all", "mean", "none", 2
+"ocean_model", "salt",         "salt",         "ocean_5day", "all", "mean", "none", 2
+"ocean_model", "MEKE",         "meke",         "ocean_5day", "all", "mean", "none", 2
