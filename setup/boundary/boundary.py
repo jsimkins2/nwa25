@@ -469,7 +469,7 @@ class Segment():
             locstream_out=True,
             periodic=periodic,
             filename=path.join(self.regrid_dir, f'regrid_{self.segstr}_u.nc'),
-            reuse_weights=True
+            reuse_weights=False
         )
         vregrid = xesmf.Regridder(
             vsource,
@@ -478,7 +478,7 @@ class Segment():
             locstream_out=True,
             periodic=periodic,
             filename=path.join(self.regrid_dir, f'regrid_{self.segstr}_v.nc'),
-            reuse_weights=True
+            reuse_weights=False
         )
         udest = uregrid(usource)
         vdest = vregrid(vsource)
@@ -571,7 +571,7 @@ class Segment():
             locstream_out=True,
             periodic=periodic,
             filename=path.join(self.regrid_dir, f'regrid_{self.segstr}_{regrid_suffix}.nc'),
-            reuse_weights=True
+            reuse_weights=False
         )
         tdest = regrid(tsource)
 
