@@ -1649,9 +1649,16 @@ USE_RIVER_HEAT_CONTENT = False  !   [Boolean] default = False
 USE_CALVING_HEAT_CONTENT = False !   [Boolean] default = False
                                 ! If true, use the fluxes%calving_Hflx field to set the heat carried by runoff,
                                 ! instead of using SST*CP*froz_runoff.
-VAR_PEN_SW = False              !   [Boolean] default = False
+VAR_PEN_SW = True               !   [Boolean] default = False
                                 ! If true, use one of the CHL_A schemes specified by OPACITY_SCHEME to determine
                                 ! the e-folding depth of incoming short wave radiation.
+CHL_FROM_FILE = True            !   [Boolean] default = True
+                                ! If true, chl_a is read from a file.
+CHL_FILE = "chl_mom6.nc"        !
+                                ! CHL_FILE is the file containing chl_a concentrations in the variable CHL_A. It
+                                ! is used when VAR_PEN_SW and CHL_FROM_FILE are true.
+CHL_VARNAME = "CHL_A"           ! default = "CHL_A"
+                                ! Name of CHL_A variable in CHL_FILE.
 
 ! === module MOM_energetic_PBL ===
 ML_OMEGA_FRAC = 0.001           !   [nondim] default = 0.0
@@ -1795,17 +1802,14 @@ REGULARIZE_SURFACE_LAYERS = False !   [Boolean] default = False
                                 ! much lateral variations to allow for sensible lateral barotropic transports.
 
 ! === module MOM_opacity ===
-EXP_OPACITY_SCHEME = "SINGLE_EXP" ! default = "SINGLE_EXP"
-                                ! This character string specifies which exponential opacity scheme to utilize.
-                                ! Currently valid options include:
-                                !        SINGLE_EXP - Single Exponent decay.
-                                !        DOUBLE_EXP - Double Exponent decay.
-PEN_SW_SCALE = 0.0              !   [m] default = 0.0
-                                ! The vertical absorption e-folding depth of the penetrating shortwave
-                                ! radiation.
-PEN_SW_FRAC = 0.0               !   [nondim] default = 0.0
-                                ! The fraction of the shortwave radiation that penetrates below the surface.
-PEN_SW_NBANDS = 1               ! default = 1
+OPACITY_SCHEME = "MANIZZA_05"   ! default = "MANIZZA_05"
+                                ! This character string specifies how chlorophyll concentrations are translated
+                                ! into opacities. Currently valid options include:
+                                !        MANIZZA_05 - Use Manizza et al., GRL, 2005.
+                                !        MOREL_88 - Use Morel, JGR, 1988.
+BLUE_FRAC_SW = 0.5              !   [nondim] default = 0.5
+                                ! The fraction of the penetrating shortwave radiation that is in the blue band.
+PEN_SW_NBANDS = 3               ! default = 1
                                 ! The number of bands of penetrating shortwave radiation.
 OPTICS_2018_ANSWERS = False     !   [Boolean] default = False
                                 ! If true, use the order of arithmetic and expressions that recover the answers

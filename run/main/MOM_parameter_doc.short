@@ -544,6 +544,12 @@ KD_MIN = 2.0E-07                !   [m2 s-1] default = 1.0E-07
 
 ! === module MOM_diabatic_aux ===
 ! The following parameters are used for auxiliary diabatic processes.
+VAR_PEN_SW = True               !   [Boolean] default = False
+                                ! If true, use one of the CHL_A schemes specified by OPACITY_SCHEME to determine
+                                ! the e-folding depth of incoming short wave radiation.
+CHL_FILE = "chl_mom6.nc"        !
+                                ! CHL_FILE is the file containing chl_a concentrations in the variable CHL_A. It
+                                ! is used when VAR_PEN_SW and CHL_FROM_FILE are true.
 
 ! === module MOM_energetic_PBL ===
 ML_OMEGA_FRAC = 0.001           !   [nondim] default = 0.0
@@ -620,6 +626,8 @@ LT_MOD_LAC5 = 0.8               !   [nondim] default = 0.95
                                 ! unstable Obukhov depth.
 
 ! === module MOM_opacity ===
+PEN_SW_NBANDS = 3               ! default = 1
+                                ! The number of bands of penetrating shortwave radiation.
 
 ! === module MOM_tracer_advect ===
 TRACER_ADVECTION_SCHEME = "PPM:H3" ! default = "PLM"

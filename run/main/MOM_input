@@ -620,6 +620,31 @@ LT_MOD_LAC5 = 0.8               !   [nondim] default = 0.95
                                 ! unstable Obukhov depth.
 
 ! === module MOM_opacity ===
+VAR_PEN_SW = True               !   [Boolean] default = False;  HYCOM: jerlv0=-1
+                                ! If true, use one of the CHL_A schemes specified by
+                                ! OPACITY_SCHEME to determine the e-folding depth of
+                                ! incoming short wave radiation.
+OPACITY_SCHEME = "MANIZZA_05"   ! default = "MANIZZA_05"
+                                ! This character string specifies how chlorophyll
+                                ! concentrations are translated into opacities. Currently
+                                ! valid options include:
+                                !        MANIZZA_05 - Use Manizza et al., GRL, 2005.
+                                !        MOREL_88 - Use Morel, JGR, 1988.
+CHL_FROM_FILE = True            !   [Boolean] default = True
+                                ! If true, chl_a is read from a file.
+CHL_FILE = "chl_mom6.nc"        !
+                                ! CHL_FILE is the file containing chl_a concentrations in
+                                ! the variable CHL_A. It is used when VAR_PEN_SW and
+                                ! CHL_FROM_FILE are true.
+BLUE_FRAC_SW = 0.5              !   [nondim] default = 0.5
+                                ! The fraction of the penetrating shortwave radiation
+                                ! that is in the blue band.
+PEN_SW_NBANDS = 3               ! default = 1
+                                ! The number of bands of penetrating shortwave radiation.
+OPACITY_LAND_VALUE = 10.0       !   [m-1] default = 10.0
+                                ! The value to use for opacity over land. The default is
+                                ! 10 m-1 - a value for muddy water.
+
 
 ! === module MOM_tracer_advect ===
 TRACER_ADVECTION_SCHEME = "PPM:H3" ! default = "PLM"
