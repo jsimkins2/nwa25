@@ -3,6 +3,8 @@
 All files must be NETCDF3
 
 ### Adding IC file to MOM_input
+
+```
 ! === module MOM_state_initialization ===
 THICKNESS_CONFIG = "coord"      ! default = "uniform"
                                 ! A string that determines how the initial layer thicknesses are specified for a
@@ -70,3 +72,4 @@ VELOCITY_CONFIG = "file"        ! default = "zero"
                                 !     USER - call a user modified routine.
 VELOCITY_FILE = "ic/soda_ic_75z_2010-01-05.nc" !
                                 ! The name of the velocity initial condition file.
+                                ```
