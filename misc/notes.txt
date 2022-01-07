@@ -1,0 +1,26 @@
+Notes & Comments regarding NWA25
+
+Many of these notes came about during close inspection of the parameter files. Discussions were held with Alistair Adcroft, Enrique Curchitser, and Katherine Hedstrom regarding the parameters and these are some of the lines that were discussed.
+
+
+- COORD_CONFIG = "ALE" : this parameter should be set to ALE while we are in Z* case. Previously, COORD_CONFIG was set to "gprime". This is incorrect, as COORD_CONFIG should only be set to "gprime" when in isopycnal coordinates. 
+- Our resolution (1/25th degree) uses an energetics based Planetary Boundary Layer (ePBL) approach, unlike coarser resolutions which do not resolve eddys. For example, global resolutions use MEKE, which is a non-eddy resolving system. ePBL replaces KPP (or other veritcal) schemes to resolve the surface boundary layer.
+- Our timesteps are currently;
+
+            
+    DT = 300.0                      !   [s]
+                                    ! The (baroclinic) dynamics time step.  The time-step that is actually used will
+                                    ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
+                                    ! or the coupling timestep in coupled mode.)
+    DT_THERM = 3600.0               !   [s] default = 300.0
+                                    ! The thermodynamic and tracer advection time step. Ideally DT_THERM should be
+                                    ! an integer multiple of DT and less than the forcing or coupling time-step,
+                                    ! unless THERMO_SPANS_COUPLING is true, in which case DT_THERM can be an integer
+                                    ! multiple of the coupling timestep.  By default DT_THERM is set to DT.
+
+    dt_cpld = 1800
+    dt_atmos = 1800
+
+DT of 300.0 and DT_THERM seems to be good for our resolution given that OM4_025 has (DT=900, DT_THERM=2700). Note that DT_THERM must be a multiple of DT. The dt_cpld/dt_atmos should be the same value and should be half the timestep of DT_THERM. dt_cpld tells MOM6 how often to use the forcing data
+                                
+- We are outputting 5 day intervals to remove diurnal tides (for now)
