@@ -1,3 +1,5 @@
+# this code has been adapted from code created by Andrew Ross - https://github.com/andrew-c-ross/nwa-shared
+
 import numpy as np
 import xarray
 import xesmf
