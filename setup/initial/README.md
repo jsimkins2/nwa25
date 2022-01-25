@@ -1,6 +1,7 @@
 # Initial Conditions 
 
-All files must be NETCDF3
+- All files must be NETCDF3
+- Check the units of your angle_dx variable. You may need to edit rotate_uv function if your angle_dx is in radians. This assumes that your angle_dx is in degrees. The python gridtools library outputs angle_dx in degrees.
 
 ### Adding IC file to MOM_input
 

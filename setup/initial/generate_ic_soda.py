@@ -38,7 +38,7 @@ def vgrid_to_layers(vgrid, max_depth=6500.0):
     return layers
 
 
-def rotate_uv(u, v, angle, in_degrees=False):
+def rotate_uv(u, v, angle, in_degrees=True):
     """Rotate velocities from earth-relative to model-relative.
     Args:
         u: west-east component of velocity.
