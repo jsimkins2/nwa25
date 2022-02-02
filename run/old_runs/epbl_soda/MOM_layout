@@ -1,0 +1,7 @@
+! These parameters are for testing mask_tables in a non-FRE environment.
+! This file should not be used in production unless you really want to
+! use this layout.
+LAYOUT = 20,36
+IO_LAYOUT = 4,4
+MASKTABLE = "mask_table.228.20x36" ! 20*36-228 = 492 PEs
+

@@ -1,0 +1,27 @@
+#!/bin/bash
+### Job Name
+#PBS -N nwa25
+#PBS -A URTG0024
+#PBS -l walltime=11:59:00
+#PBS -q economy
+### Select 20 nodes with 36 CPUs 
+#PBS -l select=20:ncpus=36:mpiprocs=36 
+### Send email on abort and end
+#PBS -m ae
+#PBS -M james.simkins@rutgers.edu
+
+### Run the executable
+
+#------------------------------------------------------------------------------------
+# run the code
+#------------------------------------------------------------------------------------
+
+source /glade/work/jsimkins/runs-MOM6/old_runs/nwa25_epbl_update_12_2021/modules.sh
+
+if [ ! -d RESTART ] ; then mkdir RESTART ; fi
+rm ocean.stats.nc
+cp /glade/work/jsimkins/MOM6-examples/build/intel/ice_ocean_SIS2/repro/MOM6 .
+
+mpiexec_mpt -np 492 /glade/work/jsimkins/runs-MOM6/old_runs/nwa25_epbl_update_12_2021/MOM6
+
+
