@@ -1,0 +1,12 @@
+**/__pycache__
+**/.ipynb_checkpoints
+*.DS_Store
+*Untitled*
+*.nc*
+*.ipynb_checkpoints
+*.err
+*.png
+*.gif
+download_glorys_motuclient.ipynb
+download_glorys_opendap.ipynb
+
