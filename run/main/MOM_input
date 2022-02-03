@@ -140,8 +140,8 @@ OBC_SEGMENT_001_VELOCITY_NUDGING_TIMESCALES = 0.3, 360.0 !   [days] default = 0.
                                 ! Timescales in days for nudging along a segment, for inflow, then outflow.
                                 ! Setting both to zero should behave like SIMPLE obcs for the baroclinic
                                 ! velocities.
-OBC_SEGMENT_002 = "J=N,I=0:N,FLATHER,ORLANSKI,NUDGED,ORLANSKI_TAN,NUDGED_TAN" !
-                                ! Documentation needs to be dynamic?????
+OBC_SEGMENT_002 = "J=N,I=N:0,FLATHER,ORLANSKI,NUDGED,ORLANSKI_TAN,NUDGED_TAN" !
+                                ! After some analysis by Andrew Ross, the I here needs to be set to N:0 instead of 0:N (Jan 2022 discovery)
 OBC_SEGMENT_002_VELOCITY_NUDGING_TIMESCALES = 0.3, 360.0 !   [days] default = 0.0
                                 ! Timescales in days for nudging along a segment, for inflow, then outflow.
                                 ! Setting both to zero should behave like SIMPLE obcs for the baroclinic
@@ -166,9 +166,9 @@ OBC_TIDE_ADD_EQ_PHASE = True    !   [Boolean] default = False
                                 ! If true, add the equilibrium phase argument to the specified tidal phases.
 OBC_TIDE_ADD_NODAL = True       !   [Boolean] default = False
                                 ! If true, include 18.6 year nodal modulation in the boundary tidal forcing.
-OBC_TIDE_REF_DATE = 2010, 1, 1  !
+OBC_TIDE_REF_DATE = 1995, 1, 1  !
                                 ! Reference date to use for tidal calculations and equilibrium phase.
-OBC_TIDE_NODAL_REF_DATE = 2010, 7, 2 ! default = 0
+OBC_TIDE_NODAL_REF_DATE = 1995, 7, 2 ! default = 0
                                 ! Fixed reference date to use for nodal modulation of boundary tides.
 
 ! === module MOM_verticalGrid ===
@@ -304,7 +304,7 @@ TS_CONFIG = "file"              !
                                 !     rossby_front - a mixed layer front in thermal wind balance.
                                 !     SCM_CVMix_tests - used in the SCM CVMix tests.
                                 !     USER - call a user modified routine.
-TS_FILE = "ic/soda_ic_75z_2010-01-05.nc" !
+TS_FILE = "glorys_ic_75z_1995.nc" !
                                 ! The initial condition file for temperature.
 TEMP_IC_VAR = "temp"            ! default = "PTEMP"
                                 ! The initial condition variable for potential temperature.
@@ -321,14 +321,17 @@ VELOCITY_CONFIG = "file"        ! default = "zero"
                                 !     rossby_front - a mixed layer front in thermal wind balance.
                                 !     soliton - Equatorial Rossby soliton.
                                 !     USER - call a user modified routine.
-VELOCITY_FILE = "ic/soda_ic_75z_2010-01-05.nc" !
+VELOCITY_FILE = "glorys_ic_75z_1995.nc" !
                                 ! The name of the velocity initial condition file.
-OBC_SEGMENT_001_DATA = "U=file:uv1.nc(u),V=file:uv1.nc(v),SSH=file:zeta1.nc(zeta),TEMP=file:temp1.nc(temp),SALT=file:salt1.nc(salt),Uamp=file:fu1.nc(uamp),Uphase=file:fu1.nc(uphase),Vamp=file:fu1.nc(vamp),Vphase=file:fu1.nc(vphase),SSHamp=file:fz1.nc(zamp),SSHphase=file:fz1.nc(zphase)" !
+OBC_SEGMENT_001_DATA = "U=file:uv_001.nc(u),V=file:uv_001.nc(v),SSH=file:zeta_001.nc(zeta),TEMP=file:temp_001.nc(temp),SALT=file:salt_001.nc(salt),Uamp=file:fu1.nc(uamp),Uphase=file:fu1.nc(uphase),Vamp=file:fu1.nc(vamp),Vphase=file:fu1.nc(vphase),SSHamp=file:fz1.nc(zamp),SSHphase=file:fz1.nc(zphase)" !
                                 ! OBC segment docs
-OBC_SEGMENT_002_DATA = "U=file:uv2.nc(u),V=file:uv2.nc(v),SSH=file:zeta2.nc(zeta),TEMP=file:temp2.nc(temp),SALT=file:salt2.nc(salt),Uamp=file:fu2.nc(uamp),Uphase=file:fu2.nc(uphase),Vamp=file:fu2.nc(vamp),Vphase=file:fu2.nc(vphase),SSHamp=file:fz2.nc(zamp),SSHphase=file:fz2.nc(zphase)" !
+OBC_SEGMENT_002_DATA = "U=file:uv_002.nc(u),V=file:uv_002.nc(v),SSH=file:zeta_002.nc(zeta),TEMP=file:temp_002.nc(temp),SALT=file:salt_002.nc(salt),Uamp=file:fu2.nc(uamp),Uphase=file:fu2.nc(uphase),Vamp=file:fu2.nc(vamp),Vphase=file:fu2.nc(vphase),SSHamp=file:fz2.nc(zamp),SSHphase=file:fz2.nc(zphase)" !
                                 ! OBC segment docs
-OBC_SEGMENT_003_DATA = "U=file:uv3.nc(u),V=file:uv3.nc(v),SSH=file:zeta3.nc(zeta),TEMP=file:temp3.nc(temp),SALT=file:salt3.nc(salt),Uamp=file:fu3.nc(uamp),Uphase=file:fu3.nc(uphase),Vamp=file:fu3.nc(vamp),Vphase=file:fu3.nc(vphase),SSHamp=file:fz3.nc(zamp),SSHphase=file:fz3.nc(zphase)" !
+OBC_SEGMENT_003_DATA = "U=file:uv_003.nc(u),V=file:uv_003.nc(v),SSH=file:zeta_003.nc(zeta),TEMP=file:temp_003.nc(temp),SALT=file:salt_003.nc(salt),Uamp=file:fu3.nc(uamp),Uphase=file:fu3.nc(uphase),Vamp=file:fu3.nc(vamp),Vphase=file:fu3.nc(vphase),SSHamp=file:fz3.nc(zamp),SSHphase=file:fz3.nc(zphase)" !
                                 ! OBC segment docs
+
+!RAMP_OBCS = True
+!OBC_RAMP_TIMESCALE = 4.0
 
 ! === module MOM_diag_mediator ===
 

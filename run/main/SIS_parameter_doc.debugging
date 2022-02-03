@@ -56,5 +56,5 @@ CHECK_ICE_TRANSPORT_CONSERVATION = False !   [Boolean] default = False
 ! === module MOM_file_parser ===
 REPORT_UNUSED_PARAMS = True     !   [Boolean] default = True
                                 ! If true, report any parameter lines that are not used in the run.
-FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
+FATAL_UNUSED_PARAMS = False     !   [Boolean] default = False
                                 ! If true, kill the run if there are any unused parameters.

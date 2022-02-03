@@ -1,21 +1,50 @@
-NWA25-epbl_update
+NWA25_glorys_jra55
 1900 1 1 0 0 0
 
 # MOM6 ocean diagnostics files
 "ocean_daily",            1, "days", 1, "days", "time"
-"ocean_5day", 5, "days", 1, "days", "time"
-#"ocean_static",          -1, "months", 1, "days", "time" # A protected name. Do not change this line.
+"ocean_5day",             5, "days", 1, "days", "time"
+"ocean_static",          -1, "months", 1, "days", "time" # A protected name. Do not change this line.
 
-
+# Static Ocean Fields
+"ocean_model", "Coriolis",    "Coriolis",    "ocean_static", "all", "none", "none", 2
+"ocean_model", "geolon",      "geolon",      "ocean_static", "all", "none", "none", 2
+"ocean_model", "geolat",      "geolat",      "ocean_static", "all", "none", "none", 2
+"ocean_model", "geolon_c",    "geolon_c",    "ocean_static", "all", "none", "none", 2
+"ocean_model", "geolat_c",    "geolat_c",    "ocean_static", "all", "none", "none", 2
+"ocean_model", "geolon_u",    "geolon_u",    "ocean_static", "all", "none", "none", 2
+"ocean_model", "geolat_u",    "geolat_u",    "ocean_static", "all", "none", "none", 2
+"ocean_model", "geolon_v",    "geolon_v",    "ocean_static", "all", "none", "none", 2
+"ocean_model", "geolat_v",    "geolat_v",    "ocean_static", "all", "none", "none", 2
+"ocean_model", "dxCu",        "dxCu",        "ocean_static", "all", "none", "none", 2
+"ocean_model", "dyCu",        "dyCu",        "ocean_static", "all", "none", "none", 2
+"ocean_model", "dxCv",        "dxCv",        "ocean_static", "all", "none", "none", 2
+"ocean_model", "dyCv",        "dyCv",        "ocean_static", "all", "none", "none", 2
+"ocean_model", "deptho",      "deptho",      "ocean_static", "all", "none", "none", 2
+"ocean_model", "sftof",       "sftof",       "ocean_static", "all", "none", "none", 2
+"ocean_model", "wet",         "wet",         "ocean_static", "all", "none", "none", 2
+"ocean_model", "wet_c",       "wet_c",       "ocean_static", "all", "none", "none", 2
+"ocean_model", "wet_u",       "wet_u",       "ocean_static", "all", "none", "none", 2
+"ocean_model", "wet_v",       "wet_v",       "ocean_static", "all", "none", "none", 2
+"ocean_model", "dxt",         "dxt",         "ocean_static", "all", "none", "none", 2
+"ocean_model", "dyt",         "dyt",         "ocean_static", "all", "none", "none", 2
+"ocean_model", "areacello",   "areacello",   "ocean_static", "all", "none", "none", 2
+"ocean_model", "areacello_cu","areacello_cu","ocean_static", "all", "none", "none", 2
+"ocean_model", "areacello_cv","areacello_cv","ocean_static", "all", "none", "none", 2
+"ocean_model", "areacello_bu","areacello_bu","ocean_static", "all", "none", "none", 2
 
 # Daily Diagnostic Fields
 "ocean_model", "MEKE",          "meke",        "ocean_daily", "all", "mean", "none",2
 "ocean_model", "SST",           "sst",         "ocean_daily", "all", "mean", "none",2
 "ocean_model", "SSS",           "sss",         "ocean_daily", "all", "mean", "none",2
+"ocean_model", "ePBL_h_ML",     "omldamax",         "ocean_daily", "all", "max",  "none",2
+"ocean_model", "SSU",           "ssu",              "ocean_daily", "all", "mean", "none",2
+"ocean_model", "SSV",           "ssv",              "ocean_daily", "all", "mean", "none",2
+"ocean_model", "SSH",           "ssh",              "ocean_daily", "all", "mean", "none",2
 
 # 5 day diagnostic fields (removes diurnal tides)
-"ocean_model", "u",            "u",            "ocean_5day", "all", "mean", "none", 2
-"ocean_model", "v",            "v",            "ocean_5day", "all", "mean", "none", 2
-"ocean_model", "temp",         "temp",         "ocean_5day", "all", "mean", "none", 2
-"ocean_model", "salt",         "salt",         "ocean_5day", "all", "mean", "none", 2
-"ocean_model", "MEKE",         "meke",         "ocean_5day", "all", "mean", "none", 2
+"ocean_model_z", "u",            "u",            "ocean_5day", "all", "mean", "none", 2
+"ocean_model_z", "v",            "v",            "ocean_5day", "all", "mean", "none", 2
+"ocean_model_z", "temp",         "temp",         "ocean_5day", "all", "mean", "none", 2
+"ocean_model_z", "salt",         "salt",         "ocean_5day", "all", "mean", "none", 2
+"ocean_model_z", "MEKE",         "meke",         "ocean_5day", "all", "mean", "none", 2

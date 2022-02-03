@@ -92,6 +92,10 @@ SIS_TRACER_ADVECTION_SCHEME = "PPM:H3" ! default = "UPWIND_2D"
                                 !   PPM:H3 - Piecewise Parabolic Method (Huyhn 3rd order)
 
 ! === module SIS_sum_output ===
+MAXTRUNC = 100                  !   [truncations save_interval-1] default = 0
+                                ! The run will be stopped, and the day set to a very large value if the velocity
+                                ! is truncated more than MAXTRUNC times between  writing ice statistics. Set
+                                ! MAXTRUNC to 0 to stop if there is any truncation of sea ice velocities.
 
 ! === module SIS_ice_diagnostics ===
 ! This module handles sea-ice state diagnostics.

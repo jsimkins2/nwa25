@@ -1,7 +1,3 @@
-!EPORT_UNUSED_PARAMS = True     !   [Boolean] default = False
-                                ! If true, report any parameter lines that are not used in the run.
-FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
-                                ! If true, kill the run if there are any unused parameters.
 ! === module MOM_grid_init ===
 GRID_CONFIG = "mosaic"          !    Method for defining horizontal grid
                                 !  = file|cartesian|spherical|mercator
@@ -51,6 +47,8 @@ DT_RHEOLOGY = 10.0              ! The sub-cycling time step, in s, for iterating
                                 ! the rheology and ice momentum equations. If
                                 ! DT_RHEOLOGY is negative, the time step is set
                                 ! via NSTEPS_DYN.
+
+MAXTRUNC = 100  
 !  Specify the ice properties.
 ICE_DELTA_EDD_R_ICE = 1.0       !   [perhaps nondimensional?] default = 0.0
                                 ! A dreadfully documented tuning parameter for the radiative
