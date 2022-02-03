@@ -83,7 +83,7 @@ def interpolate_flood_tracers(ds, target_grid):
         target_points, 
         method='bilinear', 
         filename='regrid_soda_tracers.nc',
-        reuse_weights=True,
+        reuse_weights=False,
         periodic=True
     )
     interped = soda_to_mom(flooded).drop(['lon', 'lat'])
@@ -113,7 +113,7 @@ def interpolate_flood_velocity(ds, target_grid):
         ds, target_uv, 
         filename='regrid_soda_uv.nc',
         method='nearest_s2d',
-        reuse_weights=True,
+        reuse_weights=False,
         periodic=True
     )
     interped_uv = soda_to_uv(flooded[['u', 'v']]).drop(['lon', 'lat'])
@@ -199,19 +199,15 @@ def main():
     # Use SODA data centered on 1992-12-30.
     # Model start date is 1993-01-01.
     # https://dsrs.atmos.umd.edu/DATA/soda3.12.2/REGRIDED/ocean/soda3.12.2_5dy_ocean_reg_1993_01_04.nc
-    soda_file = '/home/james/SODA/5day/soda3.3.1_5dy_ocean_reg_2010_01_05.nc'
-    start_date = np.datetime64('2010-01-05T00:00:00')
+    soda_file = '/Volumes/P1/Data/SODA/SODA_3.3.1/1995/soda3.3.1_5dy_ocean_reg_1995_01_04.nc'
+    start_date = np.datetime64('1995-01-04T00:00:00')
     # Used in filename below, don't change
     start_str = np.datetime_as_string(start_date, unit='D')
     
     # Save the ICs here:
-    output_file = f'/home/james/initCond/nwa25/soda_ic_75z_{start_str}.nc'
-
-    # Model vertical grid:
-    vgrid_file = '/home/james/gridInfo/nwa25/vgrid_75_2m.nc'
-
-    # Model horizontal grid:
-    grid_file = '/home/james/gridInfo/nwa25/ocean_hgrid.nc'
+    output_file = f'/Users/james/Documents/nwa25/soda_ic_75z_{start_str}.nc'
+    vgrid_file = '/Users/james/Documents/nwa25/vgrid_75_2m.nc'
+    grid_file = '/Users/james/Documents/nwa25/ocean_hgrid.nc'
 
     write_initial(soda_file, vgrid_file, grid_file, start_date, output_file)
 

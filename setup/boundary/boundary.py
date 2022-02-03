@@ -1,16 +1,16 @@
 # this code has been adapted from code created by Andrew Ross - https://github.com/andrew-c-ross/nwa-shared
-
-import numpy as np
+import sys
 from os import path
 import warnings
 import xarray as xarray
 import xesmf
-
+import numpy as np
+np.set_printoptions(threshold=sys.maxsize)
 # ignore pandas FutureWarnings raised multiple times by xarray
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
-def rotate_uv(u, v, angle, in_degrees=False):
+def rotate_uv(u, v, angle, in_degrees=True):
     """Rotate velocities from earth-relative to model-relative.
 
     Args:
@@ -22,6 +22,12 @@ def rotate_uv(u, v, angle, in_degrees=False):
     Returns:
         Model-relative west-east and south-north components of velocity.
     """
+    # Check the units of the angle 
+    if angle.units == 'degrees':
+        in_degrees=True
+    if angle.units == 'radians':
+        in_degrees=False
+        
     if in_degrees:
         angle = np.radians(angle)
     urot = np.cos(angle) * u + np.sin(angle) * v
