@@ -7,6 +7,6 @@
 *.err
 *.png
 *.gif
-download_glorys_motuclient.ipynb
-download_glorys_opendap.ipynb
+*download_glorys_motuclient.ipynb
+*download_glorys_opendap.ipynb
 
