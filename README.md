@@ -1,5 +1,8 @@
 # NWA25: Northwest Atlantic 1/25th Degree MOM6 Simulation
 
+This grid has been subsetted from a 1/12th Atlantic Grid used in [Chassignet & Xu 2017](https://journals.ametsoc.org/view/journals/phoc/47/8/jpo-d-17-0031.1.xml) and then interpolated to a 1/25th degree resolution using this code. The ESMG Gridtools library was used for the generation of the grid files. Input files were generated via scripts located in the setup folder.
+
+ 
 ### Supergrid
 <img align="center" width="600" height="500" src='./misc/images/nwa25.grid.png?raw=true'>
 
