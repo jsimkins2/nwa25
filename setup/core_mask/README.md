@@ -58,7 +58,7 @@ This software stems from the FRE-NCtools mppnccombine function detailed below wi
 #### Xarray
 
 - Xarray `open_mfdataset`
-`import xarray as xr`
+`import xarray as xr` \n
 `ds = xr.open_mfdataset("./output_file_000*", combine='by_coords')`
 
 - Xarray `open_dataset`
