@@ -24,3 +24,7 @@ Many of these notes came about during close inspection of the parameter files. D
 DT of 300.0 and DT_THERM seems to be good for our resolution given that OM4_025 has (DT=900, DT_THERM=2700). Note that DT_THERM must be a multiple of DT. The dt_cpld/dt_atmos should be the same value and should be half the timestep of DT_THERM. dt_cpld tells MOM6 how often to use the forcing data
                                 
 - We are outputting 5 day intervals to remove diurnal tides (for now)
+
+- MAX_P_SURF = -1.0 : This change was made on 2/8/2022. We changed this to the default value following a discussion with Kate Hedstrom. This variable being set to -1.0 should enable the atmospheric pressure to act on the ocean (we think)
+
+- USE_JACKSON_PARAM = True : We updated this parameter on 2/10/2022 following a discussion with Brandon Reichl surrounding Hurricane Hortense. This parameter being true enabled the SST signature from Hurricane Hortense to be visible. Before this, no trace of Hurricane Hortense was visible in SST. 
