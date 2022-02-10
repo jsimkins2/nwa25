@@ -48,7 +48,7 @@ https://github.com/coecms/mppnccombine-fast
 
 Vague Installation Recipe:
 
-install_mppnccombine-fast.md
+https://github.com/jsimkins2/nwa25/blob/main/setup/core_mask/install_mppnccombine-fast.md
 
 This software stems from the FRE-NCtools mppnccombine function detailed below with the major difference being that mppnccombine-fast actually works. This allows a user to stitch together the output files by leveraging HDF5 and parallel processing. 
 
@@ -80,8 +80,8 @@ However, this function quickly runs into memory issues. Even when using a batch 
 
 These functions were used this to split files in half by the time dimension:
 
-ncks -d time,0,10 output_file_0_10_0000 output_file_0000
-ncks -d time,11,20 output_file_11_20_0000 output_file_0000
+`ncks -d time,0,10 output_file_0_10_0000 output_file_0000`
+`ncks -d time,11,20 output_file_11_20_0000 output_file_0000`
 
 When the size is small enough, mppnccombine can actually work. 
 
