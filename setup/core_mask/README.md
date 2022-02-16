@@ -4,7 +4,7 @@ MOM6 allows a user to mask out cores that are over 100% land cells. We can mask 
 
 ## Software
 
-[FRE-NCtools](https://github.com/NOAA-GFDL/FRE-NCtools)
+[Install FRE-NCtools](https://github.com/NOAA-GFDL/FRE-NCtools)
 
 The `check_mask` function will create a mask table text file that can be used by MOM6. This simple text file provides MOM6 with coordinates of cores that are 100% land. for example, if we start with a core layout of 20 x 36 and core 10,12 is 100% land, 10,12 will be added as a line in the mask table text file.
 
