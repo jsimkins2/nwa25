@@ -78,5 +78,5 @@ Note that you'll have to change all instances of jsimkins to your cheyenne usern
 8) Run build_mom6_sis2.bash
 
 .. code-block :: bash
-
+    chmod u+x build_mom6_sis2.bash
     ./build_mom6_sis2.bash
