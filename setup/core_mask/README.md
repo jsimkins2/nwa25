@@ -58,16 +58,20 @@ This software stems from the FRE-NCtools mppnccombine function detailed below wi
 #### Xarray
 
 - Xarray `open_mfdataset`
-`import xarray as xr` \n
-`ds = xr.open_mfdataset("./output_file_000*", combine='by_coords')`
+```
+import xarray as xr
+ds = xr.open_mfdataset("./output_file_000*", combine='by_coords')
+```
 
 - Xarray `open_dataset`
-`import xarray as xr`
-`ds0=xr_open_dataset("./output_file_0000")`
-`ds1=xr_open_dataset("./output_file_0001")`
-`ds2=xr_open_dataset("./output_file_0002")`
-`ds3=xr_open_dataset("./output_file_0003")`
-`ds_combined=xr.combine_by_coords([ds0,ds1,ds2,ds3],combine_attrs="drop")`
+```
+import xarray as xr
+ds0=xr_open_dataset("./output_file_0000")
+ds1=xr_open_dataset("./output_file_0001")
+ds2=xr_open_dataset("./output_file_0002")
+ds3=xr_open_dataset("./output_file_0003")
+ds_combined=xr.combine_by_coords([ds0,ds1,ds2,ds3],combine_attrs="drop")
+```
 
 #### FRE-NCtools mppnccombine
 
@@ -80,8 +84,10 @@ However, this function quickly runs into memory issues. Even when using a batch 
 
 These functions were used this to split files in half by the time dimension:
 
-`ncks -d time,0,10 output_file_0_10_0000 output_file_0000`
-`ncks -d time,11,20 output_file_11_20_0000 output_file_0000`
+```
+ncks -d time,0,10 output_file_0_10_0000 output_file_0000
+ncks -d time,11,20 output_file_11_20_0000 output_file_0000
+```
 
-When the size is small enough, mppnccombine can actually work. 
+When the file size is small enough, mppnccombine can actually work. 
 
