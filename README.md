@@ -14,3 +14,5 @@ This grid has been subsetted from a 1/12th Atlantic Grid used in [Chassignet & X
 <img align="center" width="600" height="500" src='./misc/images/sst_1995.png?raw=true'>
 <img align="center" width="600" height="500" src='./misc/images/ssh_1995.png?raw=true'>
 <img align="center" width="600" height="500" src='./misc/images/sss_1995.png?raw=true'>
+<img align="center" width="600" height="500" src='./misc/images/velocity_19960914183000.png?raw=true'>
+<img align="center" width="600" height="500" src='./misc/images/hortense_vorticity.png?raw=true'>
