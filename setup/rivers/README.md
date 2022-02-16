@@ -40,5 +40,11 @@ c.retrieve(
         ],
         'product_type': 'consolidated',
     },
-    'download.grib')
+    'glofas-era5_1995.grib')
+```
+
+Once the file is download, Climate Data Operators (cdo) can be used to conver the file to netcdf.
+
+```
+cdo -f nc copy glofas-era5_1995.grib glofas-era5_1995.n
 ```
