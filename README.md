@@ -7,7 +7,7 @@ This grid has been subsetted from a 1/12th Atlantic Grid used in [Chassignet & X
 <img align="center" width="600" height="500" src='./misc/images/nwa25.grid.png?raw=true'>
 
 ### Topography
-<img align="center" width="600" height="500" src='./misc/images/nwa25.topo.png?raw=true'>
+<img align="center" width="600" height="500" src='./misc/images/nwa25_bathymetry.png?raw=true'>
 
 ### 1995 Output
 
