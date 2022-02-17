@@ -24,7 +24,7 @@
 
  &coupler_nml
             months = 0,
-            days   = 120,
+            days   = 11,
             hours  = 0,
             current_date = 1995,1,1,3,0,0,
             calendar = 'julian',
