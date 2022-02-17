@@ -64,6 +64,9 @@ DEBUG_BT = False                !   [Boolean] default = False
 DEBUG_CONSERVATION = False      !   [Boolean] default = False
                                 ! If true, monitor conservation and extrema.
 
+! === module MOM_kappa_shear ===
+! Parameterization of shear-driven turbulence following Jackson, Hallberg and Legg, JPO 2008
+
 ! === module MOM_surface_forcing ===
 CHECK_NO_LAND_FLUXES = False    !   [Boolean] default = False
                                 ! If true, checks that values from IOB fluxes are zero above land points (i.e.

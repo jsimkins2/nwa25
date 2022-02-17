@@ -527,6 +527,8 @@ MLE_USE_PBL_MLD = True          !   [Boolean] default = False
 ! === module MOM_diagnostics ===
 
 ! === module MOM_diabatic_driver ===
+! adding this following discussion with Brandon Reichl about hurricane hortense
+USE_JACKSON_PARAM = True
 ! The following parameters are used for diabatic processes.
 ENERGETICS_SFC_PBL = True       !   [Boolean] default = False
                                 ! If true, use an implied energetics planetary boundary layer scheme to
@@ -671,7 +673,7 @@ MAXTRUNC = 100000               !   [truncations save_interval-1] default = 0
 ! === module ocean_model_init ===
 
 ! === module MOM_surface_forcing ===
-MAX_P_SURF = 0.0                !   [Pa] default = -1.0
+MAX_P_SURF = -1.0                !   [Pa] default = -1.0
                                 ! The maximum surface pressure that can be exerted by the atmosphere and
                                 ! floating sea-ice or ice shelves. This is needed because the FMS coupling
                                 ! structure does not limit the water that can be frozen out of the ocean and the

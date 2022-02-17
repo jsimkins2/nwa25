@@ -476,6 +476,12 @@ KD = 1.0E-05                    !   [m2 s-1] default = 0.0
 KD_MIN = 2.0E-07                !   [m2 s-1] default = 1.0E-07
                                 ! The minimum diapycnal diffusivity.
 
+! === module MOM_kappa_shear ===
+! Parameterization of shear-driven turbulence following Jackson, Hallberg and Legg, JPO 2008
+USE_JACKSON_PARAM = True        !   [Boolean] default = False
+                                ! If true, use the Jackson-Hallberg-Legg (JPO 2008) shear mixing
+                                ! parameterization.
+
 ! === module MOM_diabatic_aux ===
 ! The following parameters are used for auxiliary diabatic processes.
 VAR_PEN_SW = True               !   [Boolean] default = False
@@ -585,12 +591,6 @@ MAXTRUNC = 100000               !   [truncations save_interval-1] default = 0
 ! === module ocean_model_init ===
 
 ! === module MOM_surface_forcing ===
-MAX_P_SURF = 0.0                !   [Pa] default = -1.0
-                                ! The maximum surface pressure that can be exerted by the atmosphere and
-                                ! floating sea-ice or ice shelves. This is needed because the FMS coupling
-                                ! structure does not limit the water that can be frozen out of the ocean and the
-                                ! ice-ocean heat fluxes are treated explicitly.  No limit is applied if a
-                                ! negative value is used.
 RESTORE_SALINITY = True         !   [Boolean] default = False
                                 ! If true, the coupled driver will add a globally-balanced fresh-water flux that
                                 ! drives sea-surface salinity toward specified values.

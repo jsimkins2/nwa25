@@ -5,6 +5,8 @@ NWA25_glorys_jra55
 "ocean_daily",            1, "days", 1, "days", "time"
 "ocean_5day",             5, "days", 1, "days", "time"
 "ocean_static",          -1, "months", 1, "days", "time" # A protected name. Do not change this line.
+"ocean_hourly",           1, "hours", 1, "hours", "time"
+"ocean_hourly_z",           1, "hours", 1, "hours", "time"
 
 # Static Ocean Fields
 "ocean_model", "Coriolis",    "Coriolis",    "ocean_static", "all", "none", "none", 2
@@ -48,3 +50,23 @@ NWA25_glorys_jra55
 "ocean_model_z", "temp",         "temp",         "ocean_5day", "all", "mean", "none", 2
 "ocean_model_z", "salt",         "salt",         "ocean_5day", "all", "mean", "none", 2
 "ocean_model_z", "MEKE",         "meke",         "ocean_5day", "all", "mean", "none", 2
+
+# Hourly Diagnostic Fields for Hurricane Hortense
+"ocean_model", "MEKE",          "meke",        "ocean_hourly", "all", "mean", "none",2
+"ocean_model", "SST",           "sst",         "ocean_hourly", "all", "mean", "none",2
+"ocean_model", "SSS",           "sss",         "ocean_hourly", "all", "mean", "none",2
+"ocean_model", "ePBL_h_ML",     "omldamax",         "ocean_hourly", "all", "max",  "none",2
+"ocean_model", "SSU",           "ssu",              "ocean_hourly", "all", "mean", "none",2
+"ocean_model", "SSV",           "ssv",              "ocean_hourly", "all", "mean", "none",2
+"ocean_model", "SSH",           "ssh",              "ocean_hourly", "all", "mean", "none",2
+"ocean_model", "ustar",         "ustar",            "ocean_hourly", "all", "mean", "none",2
+
+# This was far too big of a file
+# Hourly Z Diagnostic Fields for Hurricane Hortense
+#"ocean_model_z", "u",            "u",            "ocean_hourly_z", "all", "mean", "none", 2
+#"ocean_model_z", "v",            "v",            "ocean_hourly_z", "all", "mean", "none", 2
+#"ocean_model_z", "temp",         "temp",         "ocean_hourly_z", "all", "mean", "none", 2
+#"ocean_model_z", "salt",         "salt",         "ocean_hourly_z", "all", "mean", "none", 2
+#"ocean_model_z", "MEKE",         "meke",         "ocean_hourly_z", "all", "mean", "none", 2
+
+
