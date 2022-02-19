@@ -46,5 +46,5 @@ c.retrieve(
 Once the file is download, Climate Data Operators (cdo) can be used to conver the file to netcdf.
 
 ```
-cdo -f nc copy glofas-era5_1995.grib glofas-era5_1995.n
+cdo -f nc copy glofas-era5_1995.grib glofas-era5_1995.nc
 ```
