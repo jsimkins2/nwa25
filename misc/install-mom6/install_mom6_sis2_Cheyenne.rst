@@ -86,7 +86,7 @@ Note that you'll have to change all instances of jsimkins to your cheyenne usern
 
     mkdir -p build/intel/ice_ocean_SIS2/repro/
     (cd build/intel/ice_ocean_SIS2/repro/; rm -f path_names; \
-    ../../../../src/mkmf/bin/list_paths -l ./ ../../../../src/MOM6/config_src/{infra/FMS1,memory/dynamic_symmetric,drivers/FMS_cap,external} ../../../../src/MOM6/src/{*,*/*}/ ../../../../src/{atmos_null,coupler,coupler/shared,coupler/simple,coupler/t,coupler/full,coupler/SHiELD,land_null,ice_param,icebergs,SIS2,FMS/coupler,FMS/include}/)
+    ../../../../src/mkmf/bin/list_paths -l ./ ../../../../src/MOM6/config_src/{infra/FMS1,memory/dynamic_symmetric,drivers/FMS_cap,external} ../../../../src/MOM6/src/{*,*/*}/ ../../../../src/{atmos_null,coupler/shared,coupler/full,land_null,ice_param,icebergs,SIS2,FMS/coupler,FMS/include}/)
     (cd build/intel/ice_ocean_SIS2/repro/; \
     ../../../../src/mkmf/bin/mkmf -t ../../../../src/mkmf/templates/cheyenne-intel.mk -o '-I../../shared/repro' -p MOM6 -l '-L../../shared/repro -lfms' -c '-Duse_AM3_physics -D_USE_LEGACY_LAND_' path_names )
 
