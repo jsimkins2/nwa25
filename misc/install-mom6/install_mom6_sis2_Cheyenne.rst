@@ -34,7 +34,7 @@ Note that you'll have to change all instances of jsimkins to your cheyenne usern
 
 .. code-block :: bash
 
-   cd src/coupler
+   cd ../../src/coupler
    git checkout main
    
 6) Create a build directory within /glade/work/jsimkins/MOM6-examples/
