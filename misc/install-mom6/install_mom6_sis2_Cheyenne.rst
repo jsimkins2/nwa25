@@ -55,7 +55,7 @@ Note that you'll have to change all instances of jsimkins to your cheyenne usern
 
 .. code-block :: bash
 
-    cp /glade/work/jsimkins/MOM6-cases/src/mkmf/templates/cheyenne* /glade/work/jsimkins/MOM6-2022/src/mkmf/templates/
+    cp /glade/work/jsimkins/MOM6-cases/src/mkmf/templates/cheyenne* /glade/work/jsimkins/MOM6-examples/src/mkmf/templates/
 
 9) Create bash file in MOM6-examples
 
