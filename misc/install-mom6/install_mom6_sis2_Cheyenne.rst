@@ -1,4 +1,4 @@
-Installing MOM6+SIS2 on NCAR's Cheyenne
+Installing MOM6+SIS2 on NCAR's Cheyenne with Updated FMScoupler
 ============================================================
 Note that you'll have to change all instances of jsimkins to your cheyenne username
 
@@ -30,34 +30,41 @@ Note that you'll have to change all instances of jsimkins to your cheyenne usern
    git submodule init
    git submodule update
 
-5) Create a build directory within /glade/work/jsimkins/MOM6-examples/
+5) Update FMS Coupler
+
+.. code-block :: bash
+
+   cd src/coupler
+   git checkout main
+   
+6) Create a build directory within /glade/work/jsimkins/MOM6-examples/
 
 .. code-block :: bash
 
     cd ../../
     mkdir build
 
-6) Clone NCAR MOM6-Cases to /glade/work/jsimkins/
+7) Clone NCAR MOM6-Cases to /glade/work/jsimkins/
 
 .. code-block :: bash
 
     cd ../
     git clone --recursive https://github.com/NCAR/MOM6-cases.git
 
-7) Copy NCAR MOM6-Cases Cheyenne.mk files to MOM6-examples
+8) Copy NCAR MOM6-Cases Cheyenne.mk files to MOM6-examples
 
 .. code-block :: bash
 
     cp /glade/work/jsimkins/MOM6-cases/src/mkmf/templates/cheyenne* /glade/work/jsimkins/MOM6-2022/src/mkmf/templates/
 
-8) Create bash file in MOM6-examples
+9) Create bash file in MOM6-examples
 
 .. code-block :: bash
 
     cd /glade/work/jsimkins/MOM6-examples/
     vim build_mom6_sis2.bash
 
-9) Copy the following code to build_mom6_sis2.bash
+10) Copy the following code to build_mom6_sis2.bash
 
 .. code-block :: bash
 
@@ -85,13 +92,13 @@ Note that you'll have to change all instances of jsimkins to your cheyenne usern
 
     (cd build/intel/ice_ocean_SIS2/repro/; source ../../env; make NETCDF=4 REPRO=1 MOM6 -j)
 
-10) Make build_mom6_sis2.bash executable
+11) Make build_mom6_sis2.bash executable
 
 .. code-block :: bash
 
-    chmod+x build_mom6_sis2.bash
+    chmod +x build_mom6_sis2.bash
 
-11) Run build_mom6_sis2.bash
+12) Run build_mom6_sis2.bash
 
 .. code-block :: bash
 
