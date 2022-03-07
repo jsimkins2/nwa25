@@ -37,6 +37,12 @@ Note that you'll have to change all instances of jsimkins to your cheyenne usern
    cd ../../src/coupler
    git checkout main
    
+5.1) Copy FMS2 into FMS
+
+.. code-block :: bash
+
+   cp ../FMS2/* ../FMS/
+
 6) Create a build directory within /glade/work/jsimkins/MOM6-examples/
 
 .. code-block :: bash
@@ -73,7 +79,7 @@ Note that you'll have to change all instances of jsimkins to your cheyenne usern
 
     module load ncarenv
     module load intel
-    module load netcdf
+    module load netcdf-mpi
     module load ncarcompilers
     module load mpt/2.19
 
