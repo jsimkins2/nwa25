@@ -79,7 +79,7 @@ Note that you'll have to change all instances of jsimkins to your cheyenne usern
 
     module load ncarenv
     module load intel
-    module load netcdf-mpi
+    module load netcdf
     module load ncarcompilers
     module load mpt/2.19
 
