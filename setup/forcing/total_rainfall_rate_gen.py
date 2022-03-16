@@ -1,126 +1,81 @@
-{
- "cells": [
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "ed0cb65f-056c-476c-bee7-e23c051154e2",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# add the two precipitation schemes together\n",
-    "import numpy as np\n",
-    "import xarray as xr\n",
-    "from numba import vectorize\n",
-    "import argparse\n",
-    "\n",
-    "\n",
-    "def trr_from_crr_and_lsrr(crr,lsrr):\n",
-    "    \"\"\"Add together ERA5 convective rain rate and ERA5 large scale rain rate to give us a total rain rate\n",
-    "    Args:\n",
-    "        crr (xarray.DataArray): convective rain rate\n",
-    "        lsrr (xarray.DataAray): large scale rain rate\n",
-    "    \"\"\"\n",
-    "    \n",
-    "    trr = crr.drop(args[\"crrvar\"])\n",
-    "    trr['trr'] = crr[args[\"crrvar\"]] + lsrr[args[\"lsrrvar\"]]\n",
-    "    trr['trr'].attrs = {'units': 'kg m-2 s-1','long_name': 'Total Rainfall Rate'}\n",
-    "\n",
-    "    return trr\n",
-    "\n",
-    "\n",
-    "if __name__ == \"__main__\":\n",
-    "\n",
-    "    parser = argparse.ArgumentParser(\n",
-    "        description=\"aggregate ERA5 convective + ERA5 large-scale rainfall rates\"\n",
-    "    )\n",
-    "    parser.add_argument(\n",
-    "        \"--crr\",\n",
-    "        type=str,\n",
-    "        required=True,\n",
-    "        help=\"name of convective rainfall rate file\",\n",
-    "    )\n",
-    "    parser.add_argument(\n",
-    "        \"--lsrr\",\n",
-    "        type=str,\n",
-    "        required=True,\n",
-    "        help=\"name of large-scale rainfall rate file\",\n",
-    "    )\n",
-    "    parser.add_argument(\n",
-    "        \"--crrvar\",\n",
-    "        type=str,\n",
-    "        required=False,\n",
-    "        default='crr',\n",
-    "        help=\"name of convective rainfall rate variable\",\n",
-    "    )\n",
-    "    parser.add_argument(\n",
-    "        \"--lsrrvar\",\n",
-    "        type=str,\n",
-    "        required=False,\n",
-    "        default='lsrr',\n",
-    "        help=\"name of large-scale rainfall rate variable\",\n",
-    "    )\n",
-    "    parser.add_argument(\n",
-    "        \"-o\",\n",
-    "        \"--fileout\",\n",
-    "        type=str,\n",
-    "        required=True,\n",
-    "        help=\"name of produced total rainfall rate file\",\n",
-    "    )\n",
-    "    parser.add_argument(\n",
-    "        \"-c\",\n",
-    "        \"--chunks\",\n",
-    "        type=int,\n",
-    "        required=False,\n",
-    "        default=10,\n",
-    "        help=\"size of chunk in time\",\n",
-    "    )\n",
-    "    \n",
-    "    args = vars(parser.parse_args())\n",
-    "\n",
-    "    crr = xr.open_dataset(args[\"crr\"], chunks={'time': args[\"chunks\"]})\n",
-    "    lsrr = xr.open_dataset(args[\"lsrr\"], chunks={'time': args[\"chunks\"]})\n",
-    "\n",
-    "    trr = trr_from_crr_and_lsrr(crr,lsrr)\n",
-    "    trr.trr.encoding = {k: v for k, v in crr.crr.encoding.items() if k in {'_FillValue', 'missing_value', 'dtype'}}\n",
-    "    #trr.trr.encoding.update({'add_offset': None, 'scale_factor': None})\n",
-    "    trr.to_netcdf(args[\"fileout\"], format=\"NETCDF4_CLASSIC\")\n",
-    "\n",
-    "\n",
-    "\n",
-    "###  python /glade/scratch/jsimkins/ERA5/scripts/precip_gen.py --crr /glade/scratch/jsimkins/ERA5/original/ERA5_convective_rain_rate_1997.nc --lsrr /glade/scratch/jsimkins/ERA5/original/ERA5_large_scale_rain_rate_1997.nc -o /glade/scratch/jsimkins/ERA5/original/ERA5_total_rain_rate_1997.nc\n",
-    "\n",
-    "\n",
-    "\n"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "f3b3fbd9-6771-4c0c-9186-f7d58190a87c",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3 (ipykernel)",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.9.7"
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 5
-}
+#add the two precipitation schemes together
+import numpy as np
+import xarray as xr
+from numba import vectorize
+import argparse
+
+
+def trr_from_crr_and_lsrr(crr,lsrr):
+    """Add together ERA5 convective rain rate and ERA5 large scale rain rate to give us a total rain rate
+    Args:
+        crr (xarray.DataArray): convective rain rate
+        lsrr (xarray.DataAray): large scale rain rate
+    """
+
+    trr = crr.drop(args["crrvar"])
+    trr['trr'] = crr[args["crrvar"]] + lsrr[args["lsrrvar"]]
+    trr['trr'].attrs = {'units': 'kg m-2 s-1','long_name': 'Total Rainfall Rate'}
+
+    return trr
+
+
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser(
+        description="aggregate ERA5 convective + ERA5 large-scale rainfall rates"
+    )
+    parser.add_argument(
+        "--crr",
+        type=str,
+        required=True,
+        help="name of convective rainfall rate file",
+    )
+    parser.add_argument(
+        "--lsrr",
+        type=str,
+        required=True,
+        help="name of large-scale rainfall rate file",
+    )
+    parser.add_argument(
+        "--crrvar",
+        type=str,
+        required=False,
+        default='crr',
+        help="name of convective rainfall rate variable",
+    )
+    parser.add_argument(
+        "--lsrrvar",
+        type=str,
+        required=False,
+        default='lsrr',
+        help="name of large-scale rainfall rate variable",
+    )
+    parser.add_argument(
+        "-o",
+        "--fileout",
+        type=str,
+        required=True,
+        help="name of produced total rainfall rate file",
+    )
+    parser.add_argument(
+        "-c",
+        "--chunks",
+        type=int,
+        required=False,
+        default=10,
+        help="size of chunk in time",
+    )
+
+    args = vars(parser.parse_args())
+
+    crr = xr.open_dataset(args["crr"], chunks={'time': args["chunks"]})
+    lsrr = xr.open_dataset(args["lsrr"], chunks={'time': args["chunks"]})
+
+    trr = trr_from_crr_and_lsrr(crr,lsrr)
+    trr.trr.encoding = {k: v for k, v in crr.crr.encoding.items() if k in {'_FillValue', 'missing_value', 'dtype'}}
+    #trr.trr.encoding.update({'add_offset': None, 'scale_factor': None})
+    trr.to_netcdf(args["fileout"], format="NETCDF4_CLASSIC")
+
+
+
+###  python /glade/scratch/jsimkins/ERA5/scripts/precip_gen.py --crr /glade/scratch/jsimkins/ERA5/original/ERA5_convective_rain_rate_1997.nc --lsrr /glade/scratch/jsimkins/ERA5/original/ERA5_large_scale_rain_rate_1997.nc -o /glade/scratch/jsimkins/ERA5/original/ERA5_total_rain_rate_1997.nc
