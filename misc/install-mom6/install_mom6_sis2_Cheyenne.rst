@@ -30,24 +30,20 @@ Note that you'll have to change all instances of jsimkins to your cheyenne usern
    git submodule init
    git submodule update
 
-5) Update FMS Coupler
+5) Update `surface_flux.F90` in `src/coupler/`
+
+Copy code from updated `surface_flux.F90` (script)[https://github.com/NOAA-GFDL/FMScoupler/blob/main/shared/surface_flux.F90] and overwrite the file.
 
 .. code-block :: bash
 
-   cd ../../src/coupler
-   git checkout main
+   vim src/coupler/surface_flux.F90
    
-5.1) Copy FMS2 into FMS
-
-.. code-block :: bash
-
-   cp ../FMS2/* ../FMS/
 
 6) Create a build directory within /glade/work/jsimkins/MOM6-examples/
 
 .. code-block :: bash
 
-    cd ../../
+    cd /glade/work/jsimkins/MOM6-examples/
     mkdir build
 
 7) Clone NCAR MOM6-Cases to /glade/work/jsimkins/
@@ -92,7 +88,7 @@ Note that you'll have to change all instances of jsimkins to your cheyenne usern
 
     mkdir -p build/intel/ice_ocean_SIS2/repro/
     (cd build/intel/ice_ocean_SIS2/repro/; rm -f path_names; \
-    ../../../../src/mkmf/bin/list_paths -l ./ ../../../../src/MOM6/config_src/{infra/FMS1,memory/dynamic_symmetric,drivers/FMS_cap,external} ../../../../src/MOM6/src/{*,*/*}/ ../../../../src/{atmos_null,coupler/shared,coupler/full,land_null,ice_param,icebergs,SIS2,FMS/coupler,FMS/include}/)
+    ../../../../src/mkmf/bin/list_paths -l ./ ../../../../code/ ../../../../src/MOM6/config_src/{infra/FMS1,memory/dynamic_symmetric,drivers/FMS_cap,external} ../../../../src/MOM6/src/{*,*/*}/ ../../../../src/{atmos_null,coupler,land_null,ice_param,icebergs,SIS2,FMS/coupler,FMS/include}/)
     (cd build/intel/ice_ocean_SIS2/repro/; \
     ../../../../src/mkmf/bin/mkmf -t ../../../../src/mkmf/templates/cheyenne-intel.mk -o '-I../../shared/repro' -p MOM6 -l '-L../../shared/repro -lfms' -c '-Duse_AM3_physics -D_USE_LEGACY_LAND_' path_names )
 
@@ -109,3 +105,5 @@ Note that you'll have to change all instances of jsimkins to your cheyenne usern
 .. code-block :: bash
 
     ./build_mom6_sis2.bash
+
+
