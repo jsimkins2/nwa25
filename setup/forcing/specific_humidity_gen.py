@@ -1,10 +1,9 @@
-# original code from Raf Dussin : https://github.com/raphaeldussin/newERAtools/blob/master/humidity.py
 import numpy as np
 import xarray as xr
 from numba import vectorize
 import argparse
 
-
+# functions borrowed from metpy
 def mixing_ratio(partial_press, total_press, molecular_weight_ratio=0.622):
     return (molecular_weight_ratio * partial_press
                 / (total_press - partial_press))
