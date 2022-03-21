@@ -5,46 +5,23 @@ from numba import vectorize
 import argparse
 
 
-def huss_from_dtas_and_sp(dtas, sp):
-    """Compute specific humidity from dewpoint and sea level pressure
-    Args:
-        dtas (xarray.DataArray): dewpoint at 2m
-        sp (xarray.DataAray): surface pressure
-    """
-    huss = xr.apply_ufunc(huss_from_dtas_and_sp_raw, dtas, sp, dask='parallelized',
-                        output_dtypes=[dtas.dtype])
-    return huss
+def mixing_ratio(partial_press, total_press, molecular_weight_ratio=0.622):
+    return (molecular_weight_ratio * partial_press
+                / (total_press - partial_press))
 
-def huss_from_dtas_and_sp_raw(dtas, sp):
-    """
-    compute specific humidity from dewpoint and sea level pressure (ufunc)
-    Equation taken from: https://confluence.ecmwf.int/pages/viewpage.action?pageId=171411214
-    Parameters
-    ----------
-    dtas : float/np.ndarray
-        dew point at 2m
-    sp : float/np.ndarray
-        surface pressure
-    Returns
-    -------
-    huss : float/np.ndarray
-        specific humidity at 2m
-    """
-    Rdry=287.0597
-    Rvap=461.5250
-    a1=611.21
-    a3=17.502
-    a4=32.19
-    T0=273.16
-    
-    # Calculation of E saturation water vapour from Teten's formula
-    E=a1**(a3*(dtas-T0)/(dtas-a4))
 
-    # Calculation of saturation specific humidity at 2m qsat  (equal to huss)
+def specific_humidity_from_mixing_ratio(mr):
+    return mr / (1 + mr)
 
-    huss=(Rdry/Rvap)*E/(sp-((1-Rdry/Rvap)*E))
-   
-    return huss
+
+def saturation_vapor_pressure(temperature):
+    sat_pressure_0c = 6.112e2 # Pa
+    return sat_pressure_0c * np.exp(17.67 * (temperature - 273.15) # K -> C
+                                        / (temperature - 29.65))   # K -> C
+
+
+def saturation_mixing_ratio(total_press, temperature):
+    return mixing_ratio(saturation_vapor_pressure(temperature), total_press)
 
 
 if __name__ == "__main__":
@@ -96,11 +73,16 @@ if __name__ == "__main__":
 
     args = vars(parser.parse_args())
 
-    dtas = xr.open_dataset(args["dtas"], chunks={'time': args["chunks"]})[args["dtasvar"]]
-    sp = xr.open_dataset(args["sp"], chunks={'time': args["chunks"]})[args["spvar"]]
+    sphum = sphum.to_dataset()
+    tdew = xr.open_dataset(args["dtas"], chunks={'time': args["chunks"]})[args["dtasvar"]]
+    pair = xr.open_dataset(args["sp"], chunks={'time': args["chunks"]})[args["spvar"]]
 
-    huss = huss_from_dtas_and_sp(dtas, sp)
+    smr = saturation_mixing_ratio(pair, tdew)
+    sphum = specific_humidity_from_mixing_ratio(smr)
+    sphum.name = 'huss'
+    sphum = sphum.to_dataset()
 
-    huss.to_dataset(name='huss').to_netcdf(args["fileout"])
+
+    sphum.to_dataset(name='huss').to_netcdf(args["fileout"])
 
 
