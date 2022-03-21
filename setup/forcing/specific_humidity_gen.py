@@ -1,13 +1,11 @@
 import numpy as np
 import xarray as xr
-from numba import vectorize
 import argparse
 
 # functions borrowed from metpy
 def mixing_ratio(partial_press, total_press, molecular_weight_ratio=0.622):
     return (molecular_weight_ratio * partial_press
                 / (total_press - partial_press))
-
 
 def specific_humidity_from_mixing_ratio(mr):
     return mr / (1 + mr)
