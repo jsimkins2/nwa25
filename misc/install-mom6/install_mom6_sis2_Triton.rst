@@ -1,6 +1,7 @@
 Installing MOM6+SIS2 on Rutger's Triton
 ============================================================
 
+
 1) Clone the MOM6 Examples Github Repository
 
 .. code-block :: bash
@@ -42,7 +43,7 @@ Installing MOM6+SIS2 on Rutger's Triton
 
 5B) Update `surface_flux.F90` in `src/coupler/`
 
-Copy code from updated `surface_flux.F90` (script)[https://github.com/NOAA-GFDL/FMScoupler/blob/main/shared/surface_flux.F90] and overwrite the file.
+Copy code from updated `surface_flux.F90` [script](https://raw.githubusercontent.com/NOAA-GFDL/FMScoupler/a81da6c81f40b64acf0ecfa55f46ba5b5b9d4f1f/shared/surface_flux.F90) and overwrite the file.
 
 .. code-block :: bash
 
