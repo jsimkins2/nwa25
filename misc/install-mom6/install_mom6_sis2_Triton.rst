@@ -47,7 +47,7 @@ Copy code from updated `surface_flux.F90` (script)[https://github.com/NOAA-GFDL/
 
 .. code-block :: bash
 
-   vim /home/james/MOM6-examples/MOM6-examples/src/coupler/surface_flux.F90
+   vim /home/james/MOM6-examples/src/coupler/surface_flux.F90
    
 6) Create bash file in MOM6-examples
 
