@@ -1,6 +1,5 @@
 Installing MOM6+SIS2 on Rutger's Triton
 ============================================================
-Note that you'll have to change all instances of jsimkins to your cheyenne username
 
 1) Clone the MOM6 Examples Github Repository
 
