@@ -36,7 +36,7 @@ Copy code from updated `surface_flux.F90` (script)[https://github.com/NOAA-GFDL/
 
 .. code-block :: bash
 
-   vim src/coupler/surface_flux.F90
+   vim /glade/work/jsimkins/MOM6-examples/src/coupler/surface_flux.F90
    
 
 6) Create a build directory within /glade/work/jsimkins/MOM6-examples/
