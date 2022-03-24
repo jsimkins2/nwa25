@@ -1,7 +1,6 @@
 Installing MOM6+SIS2 on Rutger's Triton
 ============================================================
 
-
 1) Clone the MOM6 Examples Github Repository
 
 .. code-block :: bash
