@@ -31,7 +31,7 @@ Note that you'll have to change all instances of jsimkins to your cheyenne usern
     cd ../../
     mkdir build
 
-5) Edit the `triton-gnu.mk` flags for netCDF4 use
+5A) Edit the `triton-gnu.mk` flags for netCDF4 use
 
 .. code-block :: bash
 
@@ -41,6 +41,14 @@ Note that you'll have to change all instances of jsimkins to your cheyenne usern
 - using netCDF3 will result in restart errors during model execution
 
 
+5B) Update `surface_flux.F90` in `src/coupler/`
+
+Copy code from updated `surface_flux.F90` (script)[https://github.com/NOAA-GFDL/FMScoupler/blob/main/shared/surface_flux.F90] and overwrite the file.
+
+.. code-block :: bash
+
+   vim /home/james/MOM6-examples/MOM6-examples/src/coupler/surface_flux.F90
+   
 6) Create bash file in MOM6-examples
 
 .. code-block :: bash
