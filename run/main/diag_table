@@ -1,4 +1,4 @@
-NWA25_glorys_jra55
+NWA25_glorys_era5
 1900 1 1 0 0 0
 
 # MOM6 ocean diagnostics files
@@ -52,14 +52,14 @@ NWA25_glorys_jra55
 "ocean_model_z", "MEKE",         "meke",         "ocean_5day", "all", "mean", "none", 2
 
 # Hourly Diagnostic Fields for Hurricane Hortense
-"ocean_model", "MEKE",          "meke",        "ocean_hourly", "all", "mean", "none",2
-"ocean_model", "SST",           "sst",         "ocean_hourly", "all", "mean", "none",2
-"ocean_model", "SSS",           "sss",         "ocean_hourly", "all", "mean", "none",2
-"ocean_model", "ePBL_h_ML",     "omldamax",         "ocean_hourly", "all", "max",  "none",2
-"ocean_model", "SSU",           "ssu",              "ocean_hourly", "all", "mean", "none",2
-"ocean_model", "SSV",           "ssv",              "ocean_hourly", "all", "mean", "none",2
-"ocean_model", "SSH",           "ssh",              "ocean_hourly", "all", "mean", "none",2
-"ocean_model", "ustar",         "ustar",            "ocean_hourly", "all", "mean", "none",2
+#"ocean_model", "MEKE",          "meke",        "ocean_hourly", "all", "mean", "none",2
+#"ocean_model", "SST",           "sst",         "ocean_hourly", "all", "mean", "none",2
+#"ocean_model", "SSS",           "sss",         "ocean_hourly", "all", "mean", "none",2
+#"ocean_model", "ePBL_h_ML",     "omldamax",         "ocean_hourly", "all", "max",  "none",2
+#"ocean_model", "SSU",           "ssu",              "ocean_hourly", "all", "mean", "none",2
+#"ocean_model", "SSV",           "ssv",              "ocean_hourly", "all", "mean", "none",2
+#"ocean_model", "SSH",           "ssh",              "ocean_hourly", "all", "mean", "none",2
+#"ocean_model", "ustar",         "ustar",            "ocean_hourly", "all", "mean", "none",2
 
 # This was far too big of a file
 # Hourly Z Diagnostic Fields for Hurricane Hortense

@@ -304,7 +304,7 @@ TS_CONFIG = "file"              !
                                 !     rossby_front - a mixed layer front in thermal wind balance.
                                 !     SCM_CVMix_tests - used in the SCM CVMix tests.
                                 !     USER - call a user modified routine.
-TS_FILE = "glorys_ic_75z_1995.nc" !
+TS_FILE = "glorys_test_1996.nc" !
                                 ! The initial condition file for temperature.
 TEMP_IC_VAR = "temp"            ! default = "PTEMP"
                                 ! The initial condition variable for potential temperature.
@@ -321,7 +321,7 @@ VELOCITY_CONFIG = "file"        ! default = "zero"
                                 !     rossby_front - a mixed layer front in thermal wind balance.
                                 !     soliton - Equatorial Rossby soliton.
                                 !     USER - call a user modified routine.
-VELOCITY_FILE = "glorys_ic_75z_1995.nc" !
+VELOCITY_FILE = "glorys_test_1996.nc" !
                                 ! The name of the velocity initial condition file.
 OBC_SEGMENT_001_DATA = "U=file:uv_001.nc(u),V=file:uv_001.nc(v),SSH=file:zeta_001.nc(zeta),TEMP=file:temp_001.nc(temp),SALT=file:salt_001.nc(salt),Uamp=file:fu1.nc(uamp),Uphase=file:fu1.nc(uphase),Vamp=file:fu1.nc(vamp),Vphase=file:fu1.nc(vphase),SSHamp=file:fz1.nc(zamp),SSHphase=file:fz1.nc(zphase)" !
                                 ! OBC segment docs
