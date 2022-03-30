@@ -26,7 +26,7 @@
             months = 0,
             days   = 120,
             hours  = 0,
-            current_date = 1995,1,1,3,0,0,
+            current_date = 1996,1,1,3,0,0,
             calendar = 'julian',
             dt_cpld = 1800,
             dt_atmos = 1800,
@@ -113,8 +113,10 @@
 /
 
  &surface_flux_nml
-            ncar_ocean_flux = .true.
-	    raoult_sat_vap = .true.
+            ncar_ocean_flux_multilevel = .true.
+            bulk_zu = 10.
+            bulk_zt = 2.
+            bulk_zq = 2.
 /
 
  &topography_nml

@@ -1,19 +1,19 @@
-"ATM" , "p_surf"        , "psl"         , "./INPUT/forcing/slp_1996.nc"      , "bilinear" ,  1.0
-"ATM" , "p_bot"         , "psl"         , "./INPUT/forcing/slp_1996.nc"      , "bilinear" ,  1.0
-"ATM" , "t_bot"         , "tas"     , "./INPUT/forcing/t_10_1996.nc"     , "bilinear" ,  1.0
-"ATM" , "sphum_bot"     , "huss"    , "./INPUT/forcing/q_10_1996.nc"     , "bilinear" ,  1.0
-"ATM" , "u_bot"         , "uas"     , "./INPUT/forcing/u_10_1996.nc"     , "bicubic"  ,  1.0
-"ATM" , "v_bot"         , "vas"     , "./INPUT/forcing/v_10_1996.nc"     , "bicubic"  ,  1.0
+"ATM" , "p_surf"        , "msl"         , "./INPUT/era5/ERA5_mean_sea_level_pressure_1996.nc"      , "bilinear" ,  1.0
+"ATM" , "p_bot"         , "msl"         , "./INPUT/era5/ERA5_mean_sea_level_pressure_1996.nc"      , "bilinear" ,  1.0
+"ATM" , "t_bot"         , "t2m"         , "./INPUT/era5/ERA5_2m_temperature_1996.nc"     , "bilinear" ,  1.0
+"ATM" , "sphum_bot"     , "huss"          , "./INPUT/era5/ERA5_2m_specific_humidity_1996.nc"     , "bilinear" ,  1.0
+"ATM" , "u_bot"         , "u10"         , "./INPUT/era5/ERA5_10m_u_component_of_wind_1996.nc"     , "bicubic"  ,  1.0
+"ATM" , "v_bot"         , "v10"         , "./INPUT/era5/ERA5_10m_v_component_of_wind_1996.nc"     , "bicubic"  ,  1.0
 "ATM" , "z_bot"         , ""            , ""                    , "bilinear" ,  10.0
 "ATM" , "gust"          , ""            , ""                    , "bilinear" ,  1.0e-4
-"ICE" , "lw_flux_dn"    , "rlds"        , "./INPUT/forcing/rlds_1996.nc"     , "bilinear" ,  1.0
-"ICE" , "sw_flux_vis_dir_dn", "rsds"    , "./INPUT/forcing/rsds_1996.nc"     , "bilinear" ,  0.285
-"ICE" , "sw_flux_vis_dif_dn", "rsds"    , "./INPUT/forcing/rsds_1996.nc"     , "bilinear" ,  0.285
-"ICE" , "sw_flux_nir_dir_dn", "rsds"    , "./INPUT/forcing/rsds_1996.nc"     , "bilinear" ,  0.215
-"ICE" , "sw_flux_nir_dif_dn", "rsds"    , "./INPUT/forcing/rsds_1996.nc"     , "bilinear" ,  0.215
-"ICE" , "lprec"         , "prra"        , "./INPUT/forcing/rain_1996.nc"     , "bilinear" ,  1.0
+"ICE" , "lw_flux_dn"    , "strd"        , "./INPUT/era5/ERA5_surface_thermal_radiation_downwards_1996.nc"     , "bilinear" ,  1.0
+"ICE" , "sw_flux_vis_dir_dn", "ssrd"    , "./INPUT/era5/ERA5_surface_solar_radiation_downwards_1996.nc"     , "bilinear" ,  0.285
+"ICE" , "sw_flux_vis_dif_dn", "ssrd"    , "./INPUT/era5/ERA5_surface_solar_radiation_downwards_1996.nc"     , "bilinear" ,  0.285
+"ICE" , "sw_flux_nir_dir_dn", "ssrd"    , "./INPUT/era5/ERA5_surface_solar_radiation_downwards_1996.nc"     , "bilinear" ,  0.215
+"ICE" , "sw_flux_nir_dif_dn", "ssrd"    , "./INPUT/era5/ERA5_surface_solar_radiation_downwards_1996"     , "bilinear" ,  0.215
+"ICE" , "lprec"         , "trr"        ,  "./INPUT/era5/ERA5_total_rain_rate_1996.nc"     , "bilinear" ,  1.0
 "ICE" , "fprec"         , ""            , ""                             , "none"  ,  0.0
-"ICE" , "runoff"        , "river"       , "./INPUT/rivers.nc"            , "none"  ,  1.0
+"ICE" , "runoff"        , "runoff"       , "./INPUT/era5/GloFAS_river_runoff_1996.nc"            , "none"  ,  1.0
 "ICE" , "calving"       , ""            , ""                             , "none"  ,  0.0
 "ICE" , "dhdt"          , ""            , ""                             , "none"  , 80.0
 "ICE" , "dedt"          , ""            , ""                             , "none"  ,  2.0e-6
