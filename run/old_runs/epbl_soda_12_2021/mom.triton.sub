@@ -1,0 +1,26 @@
+#!/bin/bash
+#SBATCH -n 192
+#SBATCH --time=600:00:00
+#SBATCH -J MOM6
+#SBATCH --error=MOM6.%J.err
+#SBATCH --output=MOM6.%J.out
+#SBATCH -p triton48
+
+#set -x
+
+module load gnu8/8.3.0
+module load openmpi3/3.1.4
+module load netcdf-fortran
+
+export NC_BLKSZ=1M
+
+#------------------------------------------------------------------------------------
+# run the code
+#------------------------------------------------------------------------------------
+
+if [ ! -d RESTART ] ; then mkdir RESTART ; fi
+rm ocean.stats.nc
+cp /home/james/MOM6-examples/build/gnu/ice_ocean_SIS2/repro/MOM6 .
+
+prun ./MOM6 
+
