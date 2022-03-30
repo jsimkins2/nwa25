@@ -1,0 +1,43 @@
+"ATM" , "p_surf"        , "psl"         , "./INPUT/forcing/slp_1996.nc"      , "bilinear" ,  1.0
+"ATM" , "p_bot"         , "psl"         , "./INPUT/forcing/slp_1996.nc"      , "bilinear" ,  1.0
+"ATM" , "t_bot"         , "tas"     , "./INPUT/forcing/t_10_1996.nc"     , "bilinear" ,  1.0
+"ATM" , "sphum_bot"     , "huss"    , "./INPUT/forcing/q_10_1996.nc"     , "bilinear" ,  1.0
+"ATM" , "u_bot"         , "uas"     , "./INPUT/forcing/u_10_1996.nc"     , "bicubic"  ,  1.0
+"ATM" , "v_bot"         , "vas"     , "./INPUT/forcing/v_10_1996.nc"     , "bicubic"  ,  1.0
+"ATM" , "z_bot"         , ""            , ""                    , "bilinear" ,  10.0
+"ATM" , "gust"          , ""            , ""                    , "bilinear" ,  1.0e-4
+"ICE" , "lw_flux_dn"    , "rlds"        , "./INPUT/forcing/rlds_1996.nc"     , "bilinear" ,  1.0
+"ICE" , "sw_flux_vis_dir_dn", "rsds"    , "./INPUT/forcing/rsds_1996.nc"     , "bilinear" ,  0.285
+"ICE" , "sw_flux_vis_dif_dn", "rsds"    , "./INPUT/forcing/rsds_1996.nc"     , "bilinear" ,  0.285
+"ICE" , "sw_flux_nir_dir_dn", "rsds"    , "./INPUT/forcing/rsds_1996.nc"     , "bilinear" ,  0.215
+"ICE" , "sw_flux_nir_dif_dn", "rsds"    , "./INPUT/forcing/rsds_1996.nc"     , "bilinear" ,  0.215
+"ICE" , "lprec"         , "prra"        , "./INPUT/forcing/rain_1996.nc"     , "bilinear" ,  1.0
+"ICE" , "fprec"         , ""            , ""                             , "none"  ,  0.0
+"ICE" , "runoff"        , "river"       , "./INPUT/rivers.nc"            , "none"  ,  1.0
+"ICE" , "calving"       , ""            , ""                             , "none"  ,  0.0
+"ICE" , "dhdt"          , ""            , ""                             , "none"  , 80.0
+"ICE" , "dedt"          , ""            , ""                             , "none"  ,  2.0e-6
+"ICE" , "drdt"          , ""            , ""                             , "none"  ,  10.0
+"LND" , "t_surf"        , ""            , ""                             , "none"  ,  273.0
+"LND" , "t_ca"          , ""            , ""                             , "none"  ,  273.0
+"LND" , "q_ca"          , ""            , ""                             , "none"  ,  0.0
+"LND" , "rough_mom"     , ""            , ""                             , "none"  ,  0.01
+"LND" , "rough_heat"    , ""            , ""                             , "none"  ,  0.1
+"LND" , "albedo"        , ""            , ""                             , "none"  ,  0.1
+#"LND" , "t_ca"         , ""            , ""                             , "none"  ,  273.0
+#"LND" , "t_surf"       , ""            , ""                             , "none"  ,  273.0
+"LND" , "sphum_surf"    , ""            , ""                             , "none"  ,  0.0
+"LND" , "sphum_ca"      , ""            , ""                             , "none"  ,  0.0
+"LND" , "t_flux"        , ""            , ""                             , "none"  ,  0.0
+"LND" , "sphum_flux"    , ""            , ""                             , "none"  ,  0.0
+"LND" , "lw_flux"       , ""            , ""                             , "none"  ,  0.0
+"LND" , "sw_flux"       , ""            , ""                             , "none"  ,  0.0
+"LND" , "lprec"         , ""            , ""                             , "none"  ,  0.0
+"LND" , "fprec"         , ""            , ""                             , "none"  ,  0.0
+"LND" , "dhdt"          , ""            , ""                             , "none"  ,  5.0
+"LND" , "dedt"          , ""            , ""                             , "none"  ,  2e-6
+"LND" , "dedq"          , ""            , ""                             , "none"  ,  0.0
+"LND" , "drdt"          , ""            , ""                             , "none"  ,  5.0
+"LND" , "drag_q"        , ""            , ""                             , "none"  ,  0.0
+"LND" , "p_surf"        , ""            , ""                             , "none"  ,  1.e5
+

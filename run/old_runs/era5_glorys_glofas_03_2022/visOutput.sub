@@ -1,0 +1,23 @@
+#!/bin/bash
+### Job Name
+#PBS -N sfcimg
+#PBS -A URTG0024
+#PBS -l walltime=11:59:00
+#PBS -q economy
+### Select 2 nodes with 36 CPUs 
+#PBS -l select=1:ncpus=1:mem=100gb 
+### Send email on abort and end
+#PBS -m ae
+#PBS -M james.simkins@rutgers.edu
+
+### Run the executable
+
+#------------------------------------------------------------------------------------
+# run the code
+#------------------------------------------------------------------------------------
+
+source ~/.bashrc
+
+conda activate gridtools
+
+python /glade/work/jsimkins/runs-MOM6/nwa25/surface_imagery.py 19960828.ocean_daily.nc 19960828.ocean_static.nc 
