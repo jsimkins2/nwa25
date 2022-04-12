@@ -17,9 +17,9 @@ Note that the ESMG lab has this dataset locally downloaded on Antares at `/Volum
 ### Notes on ERA5
 
 - One must compile MOM6 with updated FMS coupler surface_flux file to account for variables such as wind and temperature having different heights. This allows one to edit `input.nml` and have MOM6 perform an interpolation for variables at differnet heights. 
-- When first attempting to use ERA5 files, MOM6 would crash after a few minutes and claim `ABORT MPT ERROR: MPI_COMM_WORLD rank 178 has terminated without calling MPI_Finalize() aborting job`. This was occurring because the latitudes in the ERA5 data are stored from 90N to 0. Flipping the latitudes removed this error. The scripts above take care of this issue. 
+- When first attempting to use ERA5 files, MOM6 would crash after a few minutes and claim `ABORT MPT ERROR: MPI_COMM_WORLD rank 178 has terminated without calling MPI_Finalize() aborting job`. This was occurring because the latitudes in the ERA5 data are stored from 90N to 0. Flipping the latitudes removed this error and Xarray Reindex is the cleanest way to flip these latitudes. The scripts above take care of this issue. 
 - ERA5 radiation variables come in J/m-2 instead of W/m-2. The flooding routine above converts the units to W/m-2.
-
+- Specific Humidity needed to be calculated using Metpy's method. For some reason, MOM6 broke at the first timestep when using ECMWF method for calculating specific humidity
 
 # JRA55-DO Forcing Data
 In runs before March 2022, JRA55-DO served as our forcing dataset. 
