@@ -74,7 +74,11 @@ if __name__ == "__main__":
     trr = trr_from_crr_and_lsrr(crr,lsrr)
     trr.trr.encoding = {k: v for k, v in crr.crr.encoding.items() if k in {'_FillValue', 'missing_value', 'dtype'}}
     #trr.trr.encoding.update({'add_offset': None, 'scale_factor': None})
-    trr.to_netcdf(args["fileout"], format="NETCDF4_CLASSIC")
+    all_vars = list(trr.data_vars.keys()) + list(trr.coords.keys())
+    encodings = {v: {'_FillValue': 1.0e20} for v in all_vars}
+    encodings['time'].update({'dtype':'float64', 'calendar': 'gregorian'})
+    encodings['trr'].update({'dtype':'float32'})
+    trr.to_netcdf(args["fileout"], format="NETCDF4_CLASSIC", encoding=encodings, unlimited_dims='time')
 
 
 
