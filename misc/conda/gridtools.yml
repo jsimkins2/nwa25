@@ -39,4 +39,3 @@ dependencies:
   - keras
   - metpy
   - seawater
-prefix: /Users/james/opt/anaconda3/envs/gridtools
