@@ -3,7 +3,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "d45a3869-ff55-4502-9dfd-d515a34cd78f",
+   "id": "afe5544c-3811-4ff0-93d6-7fb25b7efcac",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -57,8 +57,7 @@
     "            \n",
     "\n",
     "if __name__ == '__main__':\n",
-    "    download_year(2010)\n",
-    "    "
+    "    download_year(2010)"
    ]
   }
  ],
