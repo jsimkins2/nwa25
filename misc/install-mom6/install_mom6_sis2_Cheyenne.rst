@@ -32,7 +32,9 @@ Note that you'll have to change all instances of jsimkins to your cheyenne usern
 
 5) Update `surface_flux.F90` in `src/coupler/`
 
-Copy code from updated `surface_flux.F90` [script](https://raw.githubusercontent.com/NOAA-GFDL/FMScoupler/a81da6c81f40b64acf0ecfa55f46ba5b5b9d4f1f/shared/surface_flux.F90) and overwrite the file.
+Copy code from updated `surface_flux.F90` script: https://raw.githubusercontent.com/NOAA-GFDL/FMScoupler/a81da6c81f40b64acf0ecfa55f46ba5b5b9d4f1f/shared/surface_flux.F90 
+
+and overwrite the file located at the path below...
 
 .. code-block :: bash
 
