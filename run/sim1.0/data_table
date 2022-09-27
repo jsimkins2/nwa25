@@ -1,0 +1,45 @@
+"ATM", "p_surf",             "msl",    "INPUT/forcing/ERA5_mean_sea_level_pressure_2000.nc",          "bilinear",  1.0
+"ATM", "p_bot",              "msl",    "INPUT/forcing/ERA5_mean_sea_level_pressure_2000.nc",          "bilinear",  1.0
+"ATM", "t_bot",              "t2m",    "INPUT/forcing/ERA5_2m_temperature_2000.nc ",          "bilinear",  1.0
+"ATM", "sphum_bot",          "huss",  "INPUT/forcing/ERA5_2m_specific_humidity_2000.nc",        "bilinear",  1.0
+"ATM", "u_bot",              "u10",    "INPUT/forcing/ERA5_10m_u_component_of_wind_2000.nc",          "bicubic",   1.0
+"ATM", "v_bot",              "v10",    "INPUT/forcing/ERA5_10m_v_component_of_wind_2000.nc",          "bicubic",   1.0
+"ATM", "z_bot",              "",       "",                           "bilinear", 10.0
+"ATM", "gust",               "",       "",                           "bilinear",  1.0e-4
+#
+"ICE", "lw_flux_dn"        , "strd",   "INPUT/forcing/ERA5_surface_thermal_radiation_downwards_2000.nc",         "bilinear", 2.77778e-4
+"ICE", "sw_flux_vis_dir_dn", "ssrd",   "INPUT/forcing/ERA5_surface_solar_radiation_downwards_2000.nc",         "bilinear",  7.9167e-5
+"ICE", "sw_flux_vis_dif_dn", "ssrd",   "INPUT/forcing/ERA5_surface_solar_radiation_downwards_2000.nc",         "bilinear",  7.9167e-5
+"ICE", "sw_flux_nir_dir_dn", "ssrd",   "INPUT/forcing/ERA5_surface_solar_radiation_downwards_2000.nc",         "bilinear",  5.9722e-5
+"ICE", "sw_flux_nir_dif_dn", "ssrd",   "INPUT/forcing/ERA5_surface_solar_radiation_downwards_2000.nc",         "bilinear",  5.9722e-5
+"ICE", "lprec",              "trr",     "INPUT/forcing/ERA5_total_rain_rate_2000.nc",           "bilinear", 0.277777778
+"ICE", "fprec",              "",       "",                           "none",      0.0
+"ICE", "runoff",             "runoff", "INPUT/rivers/glofas_runoff_2000.nc",     "none",      1.0
+
+
+"ICE" , "calving"       , ""            , ""                             , "none"  ,  0.0
+"ICE" , "dhdt"          , ""            , ""                             , "none"  , 80.0
+"ICE" , "dedt"          , ""            , ""                             , "none"  ,  2.0e-6
+"ICE" , "drdt"          , ""            , ""                             , "none"  ,  10.0
+"LND" , "t_surf"        , ""            , ""                             , "none"  ,  273.0
+"LND" , "t_ca"          , ""            , ""                             , "none"  ,  273.0
+"LND" , "q_ca"          , ""            , ""                             , "none"  ,  0.0
+"LND" , "rough_mom"     , ""            , ""                             , "none"  ,  0.01
+"LND" , "rough_heat"    , ""            , ""                             , "none"  ,  0.1
+"LND" , "albedo"        , ""            , ""                             , "none"  ,  0.1
+#"LND" , "t_ca"         , ""            , ""                             , "none"  ,  273.0
+#"LND" , "t_surf"       , ""            , ""                             , "none"  ,  273.0
+"LND" , "sphum_surf"    , ""            , ""                             , "none"  ,  0.0
+"LND" , "sphum_ca"      , ""            , ""                             , "none"  ,  0.0
+"LND" , "t_flux"        , ""            , ""                             , "none"  ,  0.0
+"LND" , "sphum_flux"    , ""            , ""                             , "none"  ,  0.0
+"LND" , "lw_flux"       , ""            , ""                             , "none"  ,  0.0
+"LND" , "sw_flux"       , ""            , ""                             , "none"  ,  0.0
+"LND" , "lprec"         , ""            , ""                             , "none"  ,  0.0
+"LND" , "fprec"         , ""            , ""                             , "none"  ,  0.0
+"LND" , "dhdt"          , ""            , ""                             , "none"  ,  5.0
+"LND" , "dedt"          , ""            , ""                             , "none"  ,  2e-6
+"LND" , "dedq"          , ""            , ""                             , "none"  ,  0.0
+"LND" , "drdt"          , ""            , ""                             , "none"  ,  5.0
+"LND" , "drag_q"        , ""            , ""                             , "none"  ,  0.0
+"LND" , "p_surf"        , ""            , ""                             , "none"  ,  1.e5
