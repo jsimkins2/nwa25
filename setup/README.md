@@ -9,4 +9,5 @@
 
 Notes:
 
-Note that `esmpy=8.2.0` must be [installed in the same instance](https://github.com/JiaweiZhuang/xESMF/issues/47#issuecomment-665516640) of `xesmf` installation.
+- Note that `esmpy=8.2.0` must be [installed in the same instance](https://github.com/JiaweiZhuang/xESMF/issues/47#issuecomment-665516640) of `xesmf` installation.
+- If you're running on antares, my environment for this can be found at `/home/james/anaconda3/envs/xesmf`
