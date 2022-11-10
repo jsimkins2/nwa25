@@ -1,6 +1,6 @@
 # Conda Environment Instructions
 
-1) `conda create -n xesmf_env python=3.7`
+1) `conda create -n xesmf_env python=3.10.6`
 2) `conda activate xesmf_env`
 3) `conda install -c conda-forge xesmf=0.3.0 esmpy=8.2.0 bottleneck=1.3.5`
 4) `conda install -c conda-forge dask=2021.10.0 netcdf4`
