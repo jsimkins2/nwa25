@@ -5,6 +5,10 @@
 3) `conda install -c conda-forge xesmf=0.3.0 esmpy=8.2.0 bottleneck=1.3.5`
 4) `conda install -c conda-forge dask=2021.10.0 netcdf4`
 5) `conda install -c conda-forge jupyter jupyterlab numba nodejs`
+
+## Flooding
+
+If flooding is required:
 6) Install HCtFlood
 ```
 git clone https://github.com/raphaeldussin/HCtFlood
@@ -28,14 +32,14 @@ index 539050b..00201f0 100644
      (https://doi.org/10.1175/JPO2984.1)
 ```
 
-Notes:
+# Notes
 
 - Note that `esmpy=8.2.0` must be [installed in the same instance](https://github.com/JiaweiZhuang/xESMF/issues/47#issuecomment-665516640) of `xesmf` installation.
 - If you're running on antares, my environment for this can be found at `/home/james/anaconda3/envs/xesmf`
 - You must use `xesmf=0.3.0` to be able to create and reuse weight files.
 - There is also a problem with a later version of dask, recommend `dask=2021.10.0`
 
-After the packages are installed, run: `conda list | grep mpi`, the following
+After the conda packages are installed, run: `conda list | grep mpi`, the following
 packages should appear:
 
 ```
