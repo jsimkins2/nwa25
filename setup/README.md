@@ -4,12 +4,17 @@
 2) `conda activate xesmf_env`
 3) `conda install -c conda-forge xesmf=0.3.0 esmpy=8.2.0 bottleneck=1.3.5`
 4) `conda install -c conda-forge dask=2021.10.0 netcdf4`
+
+## Jupyter
+
 5) `conda install -c conda-forge jupyter jupyterlab numba nodejs`
 
 ## Flooding
 
 If flooding is required:
+
 6) Install HCtFlood
+
 ```
 git clone https://github.com/raphaeldussin/HCtFlood
 cd src/HCtFlood
