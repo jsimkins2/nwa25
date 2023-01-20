@@ -1,6 +1,7 @@
 # Initial Conditions 
 
-- All files must be NETCDF3
+- `generate_ic_glorys.py` is the most up to date script and is used for this set of runs.
+- The final IC file is saved as NETCDF4, **however, MOM6 seems to demand a NETCDF3 file**. So, after you output the file, please convert this to NETCDF3. Saving the xarray object to NETCDF3 eats up more memory and can cause your systme to crash...hence the extra step
 - Check the units of your angle_dx variable. You may need to edit rotate_uv function if your angle_dx is in radians. This assumes that your angle_dx is in degrees. The python gridtools library outputs angle_dx in degrees.
 
 ### Adding IC file to MOM_input
