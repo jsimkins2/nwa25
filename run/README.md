@@ -85,14 +85,14 @@ DT=300
 dt_cpld=600
 dt_atmos=600
 
-# Simulation 1.8
+### Simulation 1.8
 
 DT_THERM=300
 DT=300
 dt_cpld=600
 dt_atmos=600
 
-# Simulation 2.0
+### Simulation 2.0
 
 Alistair's recommendations to Enrique to attempt to fix the Gulf Stream issue (protruding too far south in previous runs and northern boundary pushing cold water far too south than it should be). This conversations occurred at the end of December, 2022.
 
@@ -108,11 +108,11 @@ SMAGORINSKY_LAPLACIAN_CONSTANT = 0.15
 RSLN_SCALED_KH, _KHTN, _KHTL   should all be set to =FALSE
 
 
-# Simulation 2.1
+### Simulation 2.1
 
 Same as Simulation 2.0, but BBL_EFIC = 0.1 (per Dujuan's recommendations) AND turning salinity off.
 
 
-# Simulation 2.2
+### Simulation 2.2
 
 Simulation 2.0 but with Closed Boundary Conditions
