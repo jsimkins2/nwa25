@@ -1,5 +1,8 @@
 # Conda Environment Instructions
 
+NOTE: Python version 3.10.6 is not verified.  Python 3.7.12 and 3.7.13 are
+verified for use.
+
 1) `conda create -n xesmf_env python=3.10.6`
 2) `conda activate xesmf_env`
 3) `conda install -c conda-forge xesmf=0.3.0 esmpy=8.2.0 bottleneck=1.3.5`
