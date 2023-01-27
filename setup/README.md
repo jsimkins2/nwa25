@@ -1,12 +1,33 @@
 # Conda Environment Instructions
 
-NOTE: Python version 3.10.6 is not verified.  Python 3.7.12 and 3.7.13 are
-verified for use.
+## Python 3.7.x
 
-1) `conda create -n xesmf_env python=3.10.6`
+1) `conda create -n xesmf_env python=3.7`
 2) `conda activate xesmf_env`
 3) `conda install -c conda-forge xesmf=0.3.0 esmpy=8.2.0 bottleneck=1.3.5`
 4) `conda install -c conda-forge dask=2021.10.0 netcdf4`
+
+## Python 3.9.x
+
+NOTE: This method takes a long time for the resolver to find all the
+right package combinations.
+
+`$ conda create -n xesmf_env_test -c conda-forge xesmf=0.3.0 esmpy=8.2.0 bottleneck=1.3.5 dask=2021.10.0 netcdf4`
+
+Last checked on Jan 26, 2023.
+
+## Python 3.10.x
+
+1) `conda create -n xesmf_env python=3.10.8`
+2) `conda activate xesmf_env`
+3) `conda install -c conda-forge xesmf=0.3.0 esmpy=8.2.0 bottleneck=1.3.5`
+4) `conda install -c conda-forge dask=2021.10.0 netcdf4`
+
+Last checked on Jan 26, 2023.
+
+## Python 3.11.x
+
+There are reported speed improvements to this version of python.
 
 ## Jupyter
 
@@ -24,7 +45,8 @@ cd src/HCtFlood
 python -m pip install -e .
 ```
 
-HCtFlood requires a one time modification to allow more iterations.
+If HCtFlood requires more iterations to converge on a solution
+here is the needed modification:
 ```
 diff --git a/HCtFlood/kara.py b/HCtFlood/kara.py
 index 539050b..00201f0 100644
@@ -42,13 +64,12 @@ index 539050b..00201f0 100644
 
 # Notes
 
-- Note that `esmpy=8.2.0` must be [installed in the same instance](https://github.com/JiaweiZhuang/xESMF/issues/47#issuecomment-665516640) of `xesmf` installation.
-- If you're running on antares, my environment for this can be found at `/home/james/anaconda3/envs/xesmf`
+- ESMF packages must have mpi support, see below.
 - You must use `xesmf=0.3.0` to be able to create and reuse weight files.
 - There is also a problem with a later version of dask, recommend `dask=2021.10.0`
 
 After the conda packages are installed, run: `conda list | grep mpi`, the following
-packages should appear:
+packages should be similar in appearance:
 
 ```
 esmf                      8.2.0           mpi_mpich_h4975321_100    conda-forge
@@ -64,5 +85,5 @@ netcdf4                   1.5.8           nompi_py37hf784469_101    conda-forge
 ```
 
 It is very important that esmf, esmpy, libnetcdf, hdf5 and netcdf-fortran have
-`mpi_mpich` within the build name (3rd column) of the listing.  If they show up
-as `nompi` then ESMF will not work.
+`mpi_mpich` within the build name (3rd column) of the package listing.  
+If they show up as `nompi` then ESMF will not work.
