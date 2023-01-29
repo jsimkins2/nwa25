@@ -66,8 +66,8 @@ def main():
     
     # Rob
     glorys_dir = '/Volumes/A1/workdir/james/glorys/'
-    output_dir = '/home/cermak/workdir/configs/nwa25/OBC/indiv/'
-    ncrcat_outdir = '/home/cermak/workdir/configs/nwa25/OBC/final/'
+    output_dir = '/home/cermak/workdir/configs/nwa25/OBC/indiv1/'
+    ncrcat_outdir = '/home/cermak/workdir/configs/nwa25/OBC/final1/'
     hgrid = xarray.open_dataset('/home/cermak/workdir/configs/nwa25/INPUT/ocean_hgrid.nc')
     
     segments = [
@@ -84,8 +84,8 @@ def main():
     #output_dir = '/Volumes/A1/workdir/james/nwa25_input/boundary/indiv_years/'
     #ncrcat_outdir = '/Volumes/A1/workdir/james/nwa25_input/boundary/boundary_final/'
     # Rob
-    output_dir = '/home/cermak/workdir/configs/nwa25/OBC/indiv/'
-    ncrcat_outdir = '/home/cermak/workdir/configs/nwa25/OBC/final/'
+    output_dir = '/home/cermak/workdir/configs/nwa25/OBC/indiv1/'
+    ncrcat_outdir = '/home/cermak/workdir/configs/nwa25/OBC/final1/'
 
     ncrcat_rename(3, ncrcat_outdir, output_dir)
 

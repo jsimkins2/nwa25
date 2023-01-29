@@ -31,6 +31,11 @@ In this example, the first two packages are built with MPI since ('mpich` and `o
 the build title.  The last package does not have MPI support and will not work if you attempt to
 utilize operations that require MPI to work.
 
+# Flooding
+
+If you require flooding of OBCs, then you also need to install:
+ * https://github.com/raphaeldussin/HCtFlood
+
 # Site specific notes
 
 ## antares
