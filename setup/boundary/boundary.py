@@ -2,7 +2,7 @@ import numpy as np
 from os import path
 import warnings
 import xarray as xarray
-import xesmf
+import os, sys, xesmf
 
 # ignore pandas FutureWarnings raised multiple times by xarray
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -488,23 +488,25 @@ class Segment():
             vsource = flood_missing(vsource, xdim=xdim, ydim=ydim, zdim=zdim)
 
         # Horizontally interpolate velocity to MOM boundary.
+        weight_file = path.join(self.regrid_dir, f'regrid_{self.segstr}_u.nc')
         uregrid = xesmf.Regridder(
             usource,
             self.coords,
             method=method,
             locstream_out=True,
             periodic=periodic,
-            filename=path.join(self.regrid_dir, f'regrid_{self.segstr}_u.nc'),
-            reuse_weights=True
+            filename=weight_file,
+            reuse_weights=os.path.isfile(weight_file)
         )
+        weight_file = path.join(self.regrid_dir, f'regrid_{self.segstr}_v.nc')
         vregrid = xesmf.Regridder(
             vsource,
             self.coords,
             method=method,
             locstream_out=True,
             periodic=periodic,
-            filename=path.join(self.regrid_dir, f'regrid_{self.segstr}_v.nc'),
-            reuse_weights=True
+            filename=weight_file,
+            reuse_weights=os.path.isfile(weight_file)
         )
         udest = uregrid(usource)
         vdest = vregrid(vsource)
@@ -579,14 +581,15 @@ class Segment():
             if flood:
                 tsource[name] = flood_missing(tsource[name], xdim=xdim, ydim=ydim, zdim=zdim)
 
+        weight_file = path.join(self.regrid_dir, f'regrid_{self.segstr}_{regrid_suffix}.nc')
         regrid = xesmf.Regridder(
             tsource,
             self.coords,
             method=method,
             locstream_out=True,
             periodic=periodic,
-            filename=path.join(self.regrid_dir, f'regrid_{self.segstr}_{regrid_suffix}.nc'),
-            reuse_weights=True
+            filename=weight_file,
+            reuse_weights=os.path.isfile(weight_file)
         )
         tdest = regrid(tsource)
 
@@ -654,14 +657,15 @@ class Segment():
             imsource[imname] = (imsource[imname].dims, flood_missing(imsource[imname], xdim=xdim, ydim=ydim, tdim='constituent').values)
 
         # Horizontally interpolate elevation components
+        weight_file = path.join(self.regrid_dir, f'regrid_{self.segstr}_tidal_elev.nc')
         regrid = xesmf.Regridder(
             resource,
             self.coords,
             method=method,
             locstream_out=True,
             periodic=periodic,
-            filename=path.join(self.regrid_dir, f'regrid_{self.segstr}_tidal_elev.nc'),
-            reuse_weights=True
+            filename=weight_file,
+            reuse_weights=os.path.isfile(weight_file)
         )
         redest = regrid(resource)
         imdest = regrid(imsource)
@@ -734,25 +738,26 @@ class Segment():
             uresource[vrename] = (vresource[vrename].dims, flood_missing(vresource[vrename], xdim=xdim, ydim=ydim, tdim='constituent').values)
             uimsource[vimname] = (vimsource[vimname].dims, flood_missing(vimsource[vimname], xdim=xdim, ydim=ydim, tdim='constituent').values)
 
+        weight_file = path.join(self.regrid_dir, f'regrid_{self.segstr}_tidal_u.nc')
         regrid_u = xesmf.Regridder(
             uresource,
             self.coords,
             method=method,
             locstream_out=True,
             periodic=periodic,
-            filename=path.join(self.regrid_dir, f'regrid_{self.segstr}_tidal_u.nc'),
-            reuse_weights=True
+            filename=weight_file,
+            reuse_weights=os.path.isfile(weight_file)
         )
 
+        weight_file = path.join(self.regrid_dir, f'regrid_{self.segstr}_tidal_v.nc')
         regrid_v = xesmf.Regridder(
             vresource,
             self.coords,
             method=method,
             locstream_out=True,
             periodic=periodic,
-            filename=path.join(
-                self.regrid_dir, f'regrid_{self.segstr}_tidal_v.nc'),
-            reuse_weights=True
+            filename=weight_file,
+            reuse_weights=os.path.isfile(weight_file)
         )
 
         # Interpolate each real and imaginary parts to segment.
