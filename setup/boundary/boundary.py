@@ -299,30 +299,43 @@ class Segment():
 
     @property
     def coords(self):
+        # Rename nxp and nyp to locations
         if self.border == 'south':
-            return xarray.Dataset({
+            rcoord = xarray.Dataset({
                 'lon': self.hgrid['x'].isel(nyp=0),
                 'lat': self.hgrid['y'].isel(nyp=0),
                 'angle': self.hgrid['angle_dx'].isel(nyp=0)
             })
+            rcoord = rcoord.rename_dims({'nxp': 'locations'})
         elif self.border == 'north':
-            return xarray.Dataset({
+            rcoord = xarray.Dataset({
                 'lon': self.hgrid['x'].isel(nyp=-1),
                 'lat': self.hgrid['y'].isel(nyp=-1),
                 'angle': self.hgrid['angle_dx'].isel(nyp=-1)
             })
+            rcoord = rcoord.rename_dims({'nxp': 'locations'})
         elif self.border == 'west':
-            return xarray.Dataset({
+            rcoord = xarray.Dataset({
                 'lon': self.hgrid['x'].isel(nxp=0),
                 'lat': self.hgrid['y'].isel(nxp=0),
                 'angle': self.hgrid['angle_dx'].isel(nxp=0)
             })
+            rcoord = rcoord.rename_dims({'nyp': 'locations'})
         elif self.border == 'east':
-            return xarray.Dataset({
+            rcoord = xarray.Dataset({
                 'lon': self.hgrid['x'].isel(nxp=-1),
                 'lat': self.hgrid['y'].isel(nxp=-1),
                 'angle': self.hgrid['angle_dx'].isel(nxp=-1)
             })
+            rcoord = rcoord.rename_dims({'nyp': 'locations'})
+
+        # Make lat and lon coordinates
+        rcoord = rcoord.assign_coords(
+            lat=rcoord['lat'],
+            lon=rcoord['lon']
+        )
+
+        return rcoord
 
     @property
     def nx(self):
@@ -496,7 +509,6 @@ class Segment():
         udest = uregrid(usource)
         vdest = vregrid(vsource)
 
-        # if lat and lon are variables in u/vsource, u/vdest will be dataset
         if isinstance(udest, xarray.Dataset):
             udest = udest.to_array().squeeze()
         if isinstance(vdest, xarray.Dataset):
@@ -504,10 +516,7 @@ class Segment():
 
         # Rotate velocities to be model-relative.
         if rotate:
-            if self.border in ['south', 'north']:
-                angle = self.coords['angle'].rename({'nxp': 'locations'})
-            elif self.border in ['west', 'east']:
-                angle = self.coords['angle'].rename({'nyp': 'locations'})
+            angle = self.coords['angle']
             udest, vdest = rotate_uv(udest, vdest, angle)
 
         ds_uv = xarray.Dataset({
@@ -582,7 +591,12 @@ class Segment():
         tdest = regrid(tsource)
 
         if not isinstance(tdest, xarray.Dataset):
-            tdest = tdest.to_dataset()
+            # If tdest has a name use it,
+            # otherwise use the tsource.name
+            if tdest.name:
+                tdest = tdest.to_dataset()
+            else:
+                tdest = tdest.to_dataset(name=tsource.name)
             
         if 'z' in tsource.coords:
             tdest = fill_missing(tdest, fill=fill)
