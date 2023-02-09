@@ -11,7 +11,7 @@ The original testing configuration for NWA25. This set of configs was adapated f
 
 A slight adaptation of Cheyenne parameters with input from Mehmet Ilicak. The following parameters were important settings for proper Gulf Stream Path.
 
-  LAPLACIAN = False                                   
+`  LAPLACIAN = False                                   
   SMAGORINSKY_KH = False                                
   SMAG_LAP_CONST = 2.0       
   SMAGORINSKY_AH = True                                                         
@@ -22,7 +22,7 @@ A slight adaptation of Cheyenne parameters with input from Mehmet Ilicak. The fo
   MIXEDLAYER_RESTRAT = True      !
   FOX_KEMPER_ML_RESTRAT_COEF = 1.0
   MLE_USE_PBL_MLD = True          
-  MLE_FRONT_LENGTH = 5000.0       
+  MLE_FRONT_LENGTH = 5000.0       `
 
 This simulation is currently being run on Gaea and so far 5 years of simulated time have been run, with more years ongoing.
 
@@ -112,7 +112,7 @@ RSLN_SCALED_KH, _KHTN, _KHTL   should all be set to =FALSE
 
 Same as Simulation 2.0, but BBL_EFIC = 0.1 (per Dujuan's recommendations) AND turning salinity off, ADJUST_NET_FRESH_WATER_TO_ZERO to False.
 
-  RESTORE_SALINITY = False         !   [Boolean] default = False
+```  RESTORE_SALINITY = False         !   [Boolean] default = False
                                   ! If true, the coupled driver will add a globally-balanced fresh-water flux that
                                   ! drives sea-surface salinity toward specified values.
   ADJUST_NET_SRESTORE_TO_ZERO = True !   [Boolean] default = True
@@ -120,7 +120,7 @@ Same as Simulation 2.0, but BBL_EFIC = 0.1 (per Dujuan's recommendations) AND tu
                                   ! a salt flux or virtual precip.
   ADJUST_NET_FRESH_WATER_TO_ZERO = False !   [Boolean] default = False
                                   ! If true, adjusts the net fresh-water forcing seen by the ocean (including
-                                  ! restoring) to zero.
+                                  ! restoring) to zero.```
 
 
 ### Simulation 2.2
