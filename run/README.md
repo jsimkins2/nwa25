@@ -131,6 +131,8 @@ Same as Simulation 2.0, but BBL_EFIC = 0.1 (per Dujuan's recommendations) AND tu
 
 Simulation 2.0 but with Closed Boundary Conditions
 
+### Simulation 2.3
+
 Regenerated bathymetry from scratch using GEBCO2020. Alistair suspects there could be an issue in downscaling NWA12 bathymetry to NWA25 using linear interpolation.
 
 Using more viscous parameters from 2.0 AND continuing to keep off salinity and ADJUST_NET_FRESH_WATER_TO_ZERO. 
