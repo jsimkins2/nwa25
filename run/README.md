@@ -110,9 +110,31 @@ RSLN_SCALED_KH, _KHTN, _KHTL   should all be set to =FALSE
 
 ### Simulation 2.1
 
-Same as Simulation 2.0, but BBL_EFIC = 0.1 (per Dujuan's recommendations) AND turning salinity off.
+Same as Simulation 2.0, but BBL_EFIC = 0.1 (per Dujuan's recommendations) AND turning salinity off, ADJUST_NET_FRESH_WATER_TO_ZERO to False.
+
+RESTORE_SALINITY = False         !   [Boolean] default = False
+                                ! If true, the coupled driver will add a globally-balanced fresh-water flux that
+                                ! drives sea-surface salinity toward specified values.
+ADJUST_NET_SRESTORE_TO_ZERO = True !   [Boolean] default = True
+                                ! If true, adjusts the salinity restoring seen to zero whether restoring is via
+                                ! a salt flux or virtual precip.
+ADJUST_NET_FRESH_WATER_TO_ZERO = False !   [Boolean] default = False
+                                ! If true, adjusts the net fresh-water forcing seen by the ocean (including
+                                ! restoring) to zero.
 
 
 ### Simulation 2.2
 
 Simulation 2.0 but with Closed Boundary Conditions
+
+Regenerated bathymetry from scratch using GEBCO2020. Alistair suspects there could be an issue in downscaling NWA12 bathymetry to NWA25 using linear interpolation.
+
+Using more viscous parameters from 2.0 AND continuing to keep off salinity and ADJUST_NET_FRESH_WATER_TO_ZERO. 
+
+### Simulation 2.4
+
+Using updated bathymetry but with more energetic parameters found in simulation 1.8 AND continuing to keep off salinity and ADJUST_NET_FRESH_WATER_TO_ZERO. 
+
+### Simulation 2.5
+
+Bulldozed some bathymetry near Cape Hatteras to see if that's the issue with the gulf stream AND continuing to keep off salinity and ADJUST_NET_FRESH_WATER_TO_ZERO. 

@@ -1,0 +1,27 @@
+#!/bin/bash
+#SBATCH -n 1625
+#SBATCH -J nwa25
+#SBATCH --error=nwa25.%J.err
+#SBATCH --output=nwa25.%J.out
+#SBATCH --exclusive
+#SBATCH --time=11:59:00
+#SBATCH --qos=normal
+#SBATCH --partition=batch
+#SBATCH --clusters=c4
+## obviously use your group account:
+#SBATCH --account=cpo_rmom6
+
+#--------------------------------- system settings ----- ---------------------------
+module load cray-netcdf
+
+export NC_BLKSZ=1M
+ulimit -s unlimited
+
+
+cp /lustre/f2/dev/James.Simkins/MOM6-examples/build/intel/ice_ocean_SIS2/repro/MOM6 .
+
+#--------------------------------- run the model -----------------------------------
+
+srun --cpu_bind=rank -n 1625 ./MOM6
+
+
