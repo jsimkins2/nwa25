@@ -11,7 +11,7 @@ The original testing configuration for NWA25. This set of configs was adapated f
 
 A slight adaptation of Cheyenne parameters with input from Mehmet Ilicak. The following parameters were important settings for proper Gulf Stream Path.
 
-`  LAPLACIAN = False                                   
+  LAPLACIAN = False                                   
   SMAGORINSKY_KH = False                                
   SMAG_LAP_CONST = 2.0       
   SMAGORINSKY_AH = True                                                         
@@ -22,7 +22,7 @@ A slight adaptation of Cheyenne parameters with input from Mehmet Ilicak. The fo
   MIXEDLAYER_RESTRAT = True      !
   FOX_KEMPER_ML_RESTRAT_COEF = 1.0
   MLE_USE_PBL_MLD = True          
-  MLE_FRONT_LENGTH = 5000.0       `
+  MLE_FRONT_LENGTH = 5000.0       
 
 This simulation is currently being run on Gaea and so far 5 years of simulated time have been run, with more years ongoing.
 
@@ -96,6 +96,7 @@ dt_atmos=600
 
 Alistair's recommendations to Enrique to attempt to fix the Gulf Stream issue (protruding too far south in previous runs and northern boundary pushing cold water far too south than it should be). This conversations occurred at the end of December, 2022.
 
+```
   DT_THERM == DT_CPLD == 1200
   DT = 300
   DT_ATMOS can be set tot he frequency of our forcing (hourly?) or to same as DT_THERM 
@@ -104,6 +105,7 @@ Alistair's recommendations to Enrique to attempt to fix the Gulf Stream issue (p
   LAPLACIAN = TRUE
   SMAGORINSKY_KH = TRUE
   SMAGORINSKY_LAPLACIAN_CONSTANT = 0.15
+```
 
 RSLN_SCALED_KH, _KHTN, _KHTL   should all be set to =FALSE
 
@@ -120,7 +122,8 @@ Same as Simulation 2.0, but BBL_EFIC = 0.1 (per Dujuan's recommendations) AND tu
                                   ! a salt flux or virtual precip.
   ADJUST_NET_FRESH_WATER_TO_ZERO = False !   [Boolean] default = False
                                   ! If true, adjusts the net fresh-water forcing seen by the ocean (including
-                                  ! restoring) to zero.```
+                                  ! restoring) to zero.
+```
 
 
 ### Simulation 2.2
