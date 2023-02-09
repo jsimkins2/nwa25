@@ -114,7 +114,8 @@ RSLN_SCALED_KH, _KHTN, _KHTL   should all be set to =FALSE
 
 Same as Simulation 2.0, but BBL_EFIC = 0.1 (per Dujuan's recommendations) AND turning salinity off, ADJUST_NET_FRESH_WATER_TO_ZERO to False.
 
-```  RESTORE_SALINITY = False         !   [Boolean] default = False
+```  
+  RESTORE_SALINITY = False         !   [Boolean] default = False
                                   ! If true, the coupled driver will add a globally-balanced fresh-water flux that
                                   ! drives sea-surface salinity toward specified values.
   ADJUST_NET_SRESTORE_TO_ZERO = True !   [Boolean] default = True
