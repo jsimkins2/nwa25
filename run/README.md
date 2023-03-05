@@ -32,10 +32,10 @@ Updated OBC generated files to reflect updates to xesmf and xarray. Python file 
 
 ### Simulation 1.3
 
-DT_THERM=1800
-DT=300
-dt_cpld=900
-dt_atmos=900
+  DT_THERM=1800
+  DT=300
+  dt_cpld=900
+  dt_atmos=900
 
 Lowering DT_THERM timestep to 1800.
 
@@ -48,32 +48,32 @@ Previously I've run different experiments to try to identify the issue. I comple
 
 ### Simulation 1.4
 
-DT_THERM=1200
-DT=300
-dt_cpld=600
-dt_atmos=600
+  DT_THERM=1200
+  DT=300
+  dt_cpld=600
+  dt_atmos=600
 
-Lowering DT_THERM timestep to 1200
-Lowering dt_cpld timestep to 600
-Lowering dt_atmos timestep to 600
+  Lowering DT_THERM timestep to 1200
+  Lowering dt_cpld timestep to 600
+  Lowering dt_atmos timestep to 600
 
 
 ### Simulation 1.5
 
-DT_THERM=1200
-DT=300
-dt_cpld=600
-dt_atmos=600
+  DT_THERM=1200
+  DT=300
+  dt_cpld=600
+  dt_atmos=600
 
 Arakawa lamb coriolis scheme instead of sadourny energy
 
 
 ### Simulation 1.6
 
-DT_THERM=1200
-DT=300
-dt_cpld=600
-dt_atmos=600
+  DT_THERM=1200
+  DT=300
+  dt_cpld=600
+  dt_atmos=600
 
 Sadourney Enstropy coriolis scheme instead of sadourny energy
 
@@ -96,23 +96,51 @@ dt_atmos=600
 
 Alistair's recommendations to Enrique to attempt to fix the Gulf Stream issue (protruding too far south in previous runs and northern boundary pushing cold water far too south than it should be). This conversations occurred at the end of December, 2022.
 
-DT_THERM == DT_CPLD == 1200
-DT = 300
-DT_ATMOS can be set tot he frequency of our forcing (hourly?) or to same as DT_THERM 
-KV = 1 e. -4
-SMAG_BI = 0.06
-LAPLACIAN = TRUE
-SMAGORINSKY_KH = TRUE
-SMAGORINSKY_LAPLACIAN_CONSTANT = 0.15
+```
+  DT_THERM == DT_CPLD == 1200
+  DT = 300
+  DT_ATMOS can be set tot he frequency of our forcing (hourly?) or to same as DT_THERM 
+  KV = 1 e. -4
+  SMAG_BI = 0.06
+  LAPLACIAN = TRUE
+  SMAGORINSKY_KH = TRUE
+  SMAGORINSKY_LAPLACIAN_CONSTANT = 0.15
+```
 
 RSLN_SCALED_KH, _KHTN, _KHTL   should all be set to =FALSE
 
 
 ### Simulation 2.1
 
-Same as Simulation 2.0, but BBL_EFIC = 0.1 (per Dujuan's recommendations) AND turning salinity off.
+Same as Simulation 2.0, but BBL_EFIC = 0.1 (per Dujuan's recommendations) AND turning salinity off, ADJUST_NET_FRESH_WATER_TO_ZERO to False.
+
+```  
+  RESTORE_SALINITY = False         !   [Boolean] default = False
+                                  ! If true, the coupled driver will add a globally-balanced fresh-water flux that
+                                  ! drives sea-surface salinity toward specified values.
+  ADJUST_NET_SRESTORE_TO_ZERO = True !   [Boolean] default = True
+                                  ! If true, adjusts the salinity restoring seen to zero whether restoring is via
+                                  ! a salt flux or virtual precip.
+  ADJUST_NET_FRESH_WATER_TO_ZERO = False !   [Boolean] default = False
+                                  ! If true, adjusts the net fresh-water forcing seen by the ocean (including
+                                  ! restoring) to zero.
+```
 
 
 ### Simulation 2.2
 
 Simulation 2.0 but with Closed Boundary Conditions
+
+### Simulation 2.3
+
+Regenerated bathymetry from scratch using GEBCO2020. Alistair suspects there could be an issue in downscaling NWA12 bathymetry to NWA25 using linear interpolation.
+
+Using more viscous parameters from 2.0 AND continuing to keep off salinity and ADJUST_NET_FRESH_WATER_TO_ZERO. 
+
+### Simulation 2.4
+
+Using updated bathymetry but with more energetic parameters found in simulation 1.8 AND continuing to keep off salinity and ADJUST_NET_FRESH_WATER_TO_ZERO. 
+
+### Simulation 2.5
+
+Bulldozed some bathymetry near Cape Hatteras to see if that's the issue with the gulf stream AND continuing to keep off salinity and ADJUST_NET_FRESH_WATER_TO_ZERO. 
