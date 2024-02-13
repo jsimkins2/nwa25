@@ -92,7 +92,7 @@ DT=300
 dt_cpld=600
 dt_atmos=600
 
-### Simulation 2.0
+## Simulation 2.0
 
 Alistair's recommendations to Enrique to attempt to fix the Gulf Stream issue (protruding too far south in previous runs and northern boundary pushing cold water far too south than it should be). This conversations occurred at the end of December, 2022.
 
@@ -143,4 +143,20 @@ Using updated bathymetry but with more energetic parameters found in simulation 
 
 ### Simulation 2.5
 
-Bulldozed some bathymetry near Cape Hatteras to see if that's the issue with the gulf stream AND continuing to keep off salinity and ADJUST_NET_FRESH_WATER_TO_ZERO. 
+Bulldozed some bathymetry near Cape Hatteras to see if that's the issue with the gulf stream AND continuing to keep off salinity and ADJUST_NET_FRESH_WATER_TO_ZERO.
+
+## Simulation 4.0
+
+- All version 4 simulations are using HYCOM1 Vertical Coordinate
+- Pulling latest MOM6 from ESMG/Halo_for_DZ
+
+### Simulation 4.1 
+
+
+### Simulation 4.2
+
+- Same setup as Simulation 4.1, but tides are OFF
+
+### Simulation 4.3
+
+- Same setup as simulation 4.1, but KV=1e~-5 and BBL_EFFIC=0.1
