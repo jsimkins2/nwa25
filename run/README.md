@@ -160,3 +160,7 @@ Bulldozed some bathymetry near Cape Hatteras to see if that's the issue with the
 ### Simulation 4.3
 
 - Same setup as simulation 4.1, but KV=1e~-5 and BBL_EFFIC=0.1
+
+### Simulation 4.5
+
+- Same setup as Simulation 4.2, but BBL_EFFIC=0.0
