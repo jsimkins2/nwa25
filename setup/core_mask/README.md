@@ -2,6 +2,9 @@
 
 MOM6 allows a user to mask out cores that are over 100% land cells. We can mask out these cores since the data will be NaN'd out following computation anyway. This does not improve the overall speed of a model run, but it increases efficiency and thus shrinks core hours per day of simulation. In our NWA25 case, our grid contains roughly 40% land. We were able to mask out ~32% of cores as land cores. Thus, our core hours per day of simulation cost was brought down from ~60 core hours / day of simulation to ~41 core hours / day of simulation.
 
+
+**NOTE THAT THE FILES MUST BE NETCDF4 IN ORDER FOR CHECK_MASK TO WORK CORRECTLY** 
+
 ## Software
 
 [Install FRE-NCtools](https://github.com/NOAA-GFDL/FRE-NCtools)
